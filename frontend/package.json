@@ -42,6 +42,7 @@
     "karma-sabarivka-reporter": "^3.2.2",
     "protractor": "~7.0.0",
     "puppeteer": "^3.2.0",
+    "ts-mockito": "^2.5.0",
     "ts-node": "~8.10.2",
     "tslint": "~6.1.2",
     "typescript": "~3.8.3"
