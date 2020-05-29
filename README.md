@@ -1,5 +1,5 @@
 # vHelpDesk
-This is the home of all the source code bewlonging to the body LIFE NEWard.
+This is the home of all the source code belonging to the body LIFE NEWard.
 
 ## Development Process
 **Coding Conventions**  
