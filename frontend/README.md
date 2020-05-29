@@ -1,5 +1,4 @@
-# NEWard
-
+# NEWard frontend
 This is the source code for the web frontend of the body LIFE NEWard.  
 
 ## Build, run, scaffold and test
