@@ -1,32 +1,18 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
+process.env.CHROME_BIN = require('puppeteer').executablePath();
 
 module.exports = function (config) {
   config.set({
-    basePath: '',
+    browsers: ['ChromeHeadlessNoSandbox'],
+    coverageIstanbulReporter: require('./config/karma/karma-istanbul.conf.js'),
+    coverageReporter: require('./config/karma/karma-sabarivka.conf.js'),
+    customLaunchers: require('./config/karma/karma-custom-launchers.conf.js'),
     frameworks: ['jasmine', '@angular-devkit/build-angular'],
-    plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('@angular-devkit/build-angular/plugins/karma')
-    ],
-    client: {
-      clearContext: false // leave Jasmine Spec Runner output visible in browser
-    },
-    coverageIstanbulReporter: {
-      dir: require('path').join(__dirname, './coverage/neward'),
-      reports: ['html', 'lcovonly', 'text-summary'],
-      fixWebpackSourcePaths: true
-    },
-    reporters: ['progress', 'kjhtml'],
-    port: 9876,
-    colors: true,
+    junitReporter: require('./config/karma/karma-junit.conf.js'),
     logLevel: config.LOG_INFO,
-    autoWatch: true,
-    browsers: ['Chrome'],
-    singleRun: false,
+    plugins: require('./config/karma/karma-plugins.conf.js'),
+    reporters: ['progress', 'kjhtml', 'junit', 'sabarivka'],
     restartOnFileChange: true
   });
 };
