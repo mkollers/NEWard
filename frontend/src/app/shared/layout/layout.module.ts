@@ -6,10 +6,11 @@ import { RouterModule } from '@angular/router';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ShellComponent } from './components/shell/shell.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent],
-  exports: [FooterComponent, HeaderComponent],
+  declarations: [FooterComponent, HeaderComponent, ShellComponent],
+  exports: [ShellComponent],
   imports: [
     CommonModule,
     RouterModule,
