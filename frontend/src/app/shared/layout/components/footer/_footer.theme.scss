@@ -1,0 +1,14 @@
+@import "~@angular/material/theming";
+
+@mixin neward-footer-theme($theme) {
+  $primary: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  .neward-footer {
+    border-top: solid 1px mat-color($foreground, text, .12);
+
+    a {
+      color: mat-color($primary, 500);
+    }
+  }
+}

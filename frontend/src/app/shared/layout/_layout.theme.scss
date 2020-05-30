@@ -1,0 +1,5 @@
+@import './components/footer/footer.theme';
+
+@mixin neward-layout-theme($theme) {
+  @include neward-footer-theme($theme);
+}

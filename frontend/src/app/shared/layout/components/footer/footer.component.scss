@@ -1,0 +1,38 @@
+@import '../../../../../styles/breakpoints';
+
+:host {
+  align-items: center;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 1fr repeat(2, auto);
+  grid-template-areas: "copyright imprint privacy";
+  height: 4.5rem;
+  padding: 0 1rem;
+
+  @media #{$mat-xs} {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "imprint"
+      "privacy"
+      "copyright";
+    justify-items: center;
+    padding: .5rem 1rem;
+  }
+}
+
+a {
+  font-size: 1rem;
+  text-decoration: none;
+  vertical-align: bottom;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#created-by {
+  @media #{$mat-xs} {
+    grid-area: copyright;
+  }
+}

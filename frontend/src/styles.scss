@@ -1,6 +1,8 @@
 @import './styles/bodylife.theme';
+@import './app/shared/layout/layout.theme';
 
 @mixin custom-theme($theme) {
+  @include neward-layout-theme($theme);
 }
 
 @include angular-material-theme($bodylife-theme);
