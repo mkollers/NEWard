@@ -1,0 +1,11 @@
+@import "~@angular/material/theming";
+
+@mixin neward-header-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $primary: map-get($theme, primary);
+
+  .neward-header.small {
+    background-color: mat-color($background, background);
+  }
+}

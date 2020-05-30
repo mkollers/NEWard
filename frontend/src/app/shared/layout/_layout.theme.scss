@@ -1,0 +1,7 @@
+@import './components/header/header.theme';
+@import './components/footer/footer.theme';
+
+@mixin neward-layout-theme($theme) {
+  @include neward-header-theme($theme);
+  @include neward-footer-theme($theme);
+}

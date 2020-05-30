@@ -1,0 +1,10 @@
+:host {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "content"
+    "footer";
+  height: 100%;
+  padding-top: 4.5rem;
+}
