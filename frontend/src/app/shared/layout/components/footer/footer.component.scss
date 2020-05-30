@@ -2,6 +2,7 @@
 
 :host {
   align-items: center;
+  box-sizing: border-box;
   display: grid;
   gap: .5rem;
   grid-template-columns: 1fr repeat(2, auto);

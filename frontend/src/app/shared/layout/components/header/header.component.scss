@@ -1,11 +1,24 @@
 :host {
   align-items: center;
+  box-sizing: border-box;
   display: grid;
   gap: .5rem;
-  grid-template-columns: 2.5rem 1fr 2.5rem;
   grid-template-areas: "action logo spacer";
+  grid-template-columns: 2.5rem 1fr 2.5rem;
   height: 4.5rem;
+  left: 0;
   padding: 0 1rem;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transition: all 400ms ease-in-out;
+}
+
+:host.small {
+  transition: all 400ms ease-in-out;
+  border-bottom: none;
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  height: 3.5rem;
 }
 
 #logo {

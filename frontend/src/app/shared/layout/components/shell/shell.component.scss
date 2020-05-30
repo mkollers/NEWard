@@ -1,9 +1,10 @@
 :host {
+  box-sizing: border-box;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 1fr auto;
   grid-template-areas:
-    "header"
     "content"
     "footer";
   height: 100%;
+  padding-top: 4.5rem;
 }
