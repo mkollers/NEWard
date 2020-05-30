@@ -1,3 +1,11 @@
+@import './styles/bodylife.theme';
+
+@mixin custom-theme($theme) {
+}
+
+@include angular-material-theme($bodylife-theme);
+@include custom-theme($bodylife-theme);
+
 html,
 body {
   height: 100%;

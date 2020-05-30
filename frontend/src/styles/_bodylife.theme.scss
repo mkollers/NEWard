@@ -1,0 +1,86 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+
+$persian-green: (50 : #e0f5f0,
+  100 : #b3e5da,
+  200 : #80d4c2,
+  300 : #4dc3a9,
+  400 : #26b696,
+  500 : #00a984,
+  600 : #00a27c,
+  700 : #009871,
+  800 : #008f67,
+  900 : #007e54,
+  A100 : #acffde,
+  A200 : #79ffca,
+  A400 : #46ffb6,
+  A700 : #2cffac,
+  contrast: (50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  ));
+
+$red-ribbon: (50 : #fce1e5,
+  100 : #f7b4be,
+  200 : #f28293,
+  300 : #ec4f68,
+  400 : #e82a47,
+  500 : #e40427,
+  600 : #e10323,
+  700 : #dd031d,
+  800 : #d90217,
+  900 : #d1010e,
+  A100 : #fff9f9,
+  A200 : #ffc6c7,
+  A400 : #ff9396,
+  A700 : #ff7a7d,
+  contrast: (50 : #333333,
+    100 : #333333,
+    200 : #333333,
+    300 : #333333,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #333333,
+    A200 : #333333,
+    A400 : #333333,
+    A700 : #333333,
+  ));
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$bodylife-primary: mat-palette($persian-green);
+$bodylife-accent: mat-palette($red-ribbon);
+
+// The warn palette is optional (defaults to red).
+$bodylife-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$bodylife-theme: mat-light-theme($bodylife-primary, $bodylife-primary, $bodylife-warn);
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

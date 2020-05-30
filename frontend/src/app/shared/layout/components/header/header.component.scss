@@ -1,0 +1,22 @@
+:host {
+  align-items: center;
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  grid-template-areas: "action logo spacer";
+  height: 4.5rem;
+  padding: 0 1rem;
+}
+
+#logo {
+  -webkit-tap-highlight-color: transparent;
+  background-image: url('/assets/logo.svg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  display: block;
+  grid-area: logo;
+  height: 1.5rem;
+  justify-self: center;
+  outline: none;
+  width: 11rem;
+}
