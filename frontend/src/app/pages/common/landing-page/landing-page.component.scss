@@ -1,49 +1,6 @@
-@import '../../../../styles/breakpoints';
-
-:host {
-  display: grid;
-  gap: .5rem;
-  grid-template-columns: repeat(2, auto) 1fr repeat(2, 5rem);
-  grid-template-rows: repeat(2, auto);
-  grid-template-areas:
-    "text text text company-trophy product-trophy"
-    "goto-companies goto-products void company-trophy product-trophy";
-  overflow: hidden;
-
-  @media #{$mat-xs} {
-    grid-template-columns: auto 1fr repeat(2, 2rem);
-    grid-template-rows: repeat(3, auto);
-    grid-template-areas:
-      "text text company-trophy product-trophy"
-      "goto-companies void company-trophy product-trophy"
-      "goto-products void company-trophy product-trophy";
-  }
-}
-
-a {
-  align-self: flex-start;
-}
-
-p {
-  grid-area: text;
-}
-
-#goto-companies {
-  grid-area: goto-companies;
-}
-
-#goto-products {
-  grid-area: goto-products;
-}
-
-#company-trophy {
-  grid-area: company-trophy;
-}
-
-#product-trophy {
-  grid-area: product-trophy;
-}
-
-img {
+.right-image {
+  float: right;
+  margin: 0 0 1rem 1rem;
   max-width: 100%;
+  width: 3rem;
 }

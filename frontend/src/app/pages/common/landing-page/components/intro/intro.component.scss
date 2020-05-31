@@ -1,0 +1,50 @@
+@import '../../../../../../styles/breakpoints';
+
+:host {
+  display: grid;
+  gap: .5rem;
+  grid-template-columns: repeat(2, auto) 1fr;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas:
+    "text text text"
+    "goto-companies goto-products void";
+  overflow: hidden;
+
+  @media #{$mat-xs} {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    grid-template-areas:
+      "text"
+      "goto-companies"
+      "goto-products";
+  }
+}
+
+a {
+  align-self: flex-start;
+
+  @media #{$mat-xs} {
+    justify-self: center;
+  }
+}
+
+p {
+  grid-area: text;
+  text-align: justify;
+}
+
+#goto-companies {
+  grid-area: goto-companies;
+}
+
+#goto-products {
+  grid-area: goto-products;
+}
+
+#company-trophy {
+  grid-area: company-trophy;
+}
+
+#product-trophy {
+  grid-area: product-trophy;
+}
