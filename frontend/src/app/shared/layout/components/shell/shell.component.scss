@@ -15,3 +15,7 @@ main {
   padding: 1rem;
   width: 100%;
 }
+
+:host ::ng-deep router-outlet+* {
+  display: grid;
+}
