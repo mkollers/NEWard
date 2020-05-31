@@ -1,7 +1,9 @@
-@import './styles/bodylife.theme';
 @import './app/shared/layout/layout.theme';
+@import './styles/bodylife.theme';
+@import './styles/common';
 
 @mixin custom-theme($theme) {
+  @include neward-common-theme($theme);
   @include neward-layout-theme($theme);
 }
 

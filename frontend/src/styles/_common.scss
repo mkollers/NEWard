@@ -1,0 +1,36 @@
+@import "~@angular/material/theming";
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul {
+  margin: 0;
+}
+
+p {
+  line-height: 1.4;
+}
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  display: grid;
+  gap: .5rem;
+  list-style: none;
+}
+
+@mixin neward-common-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  a {
+    color: mat-color($primary, 500);
+  }
+}
