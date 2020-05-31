@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShellComponent } from '@shared/layout/components/shell/shell.component';
 
 const routes: Routes = [
-  { path: '', component: ShellComponent }
+  { path: '', component: ShellComponent },
+  { path: 'datenschutz', component: ShellComponent, loadChildren: () => import('./pages/common/privacy-page/privacy-page.module').then(m => m.PrivacyPageModule) }
 ];
 
 @NgModule({

@@ -18,6 +18,9 @@ import { ShellComponent } from './components/shell/shell.component';
     // Material
     MatButtonModule,
     MatIconModule
+  ],
+  providers: [
+    { provide: 'WINDOW', useValue: window }
   ]
 })
 export class LayoutModule { }
