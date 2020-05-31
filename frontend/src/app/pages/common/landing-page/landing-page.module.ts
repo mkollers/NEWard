@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingPageComponent } from './landing-page.component';
@@ -8,7 +9,10 @@ import { LandingPageComponent } from './landing-page.component';
   declarations: [LandingPageComponent],
   imports: [
     CommonModule,
-    LandingPageRoutingModule
+    LandingPageRoutingModule,
+
+    // Material
+    MatButtonModule
   ]
 })
 export class LandingPageModule { }

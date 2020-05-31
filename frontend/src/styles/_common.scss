@@ -16,7 +16,7 @@ p {
 a {
   text-decoration: none;
 
-  &:hover {
+  &:not(.mat-button-base):hover {
     text-decoration: underline;
   }
 }
