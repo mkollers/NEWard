@@ -2,6 +2,7 @@ import { NgZone, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { LoadChildrenCallback, Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LandingPageModule } from '@pages/common/landing-page/landing-page.module';
 import { PrivacyPageModule } from '@pages/common/privacy-page/privacy-page.module';
 import { ShellComponent } from '@shared/layout/components/shell/shell.component';
 
@@ -39,6 +40,7 @@ describe('AppRoutingModule', () => {
         });
 
         const cases: { path: string, module: Type<any>, component: Type<any> }[] = [
+            { path: '', module: LandingPageModule, component: ShellComponent },
             { path: 'datenschutz', module: PrivacyPageModule, component: ShellComponent }
         ];
         for (const c of cases) {
