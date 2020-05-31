@@ -46,13 +46,14 @@ describe('AppRoutingModule', () => {
         for (const c of cases) {
             it(`should load ${c.module.name}`, async () => {
                 // Arrange
-                const route = routes.find(r => r.path === c.path);
+                const parent = routes.find(r => r.path === '');
+                const route = parent?.children?.find(r => r.path === c.path);
 
                 // Act
                 const childs = await (route?.loadChildren as LoadChildrenCallback)();
 
                 // Assert
-                expect(route?.component).toBe(c.component);
+                expect(parent?.component).toBe(c.component);
                 expect(childs).toBe(c.module);
             });
         }

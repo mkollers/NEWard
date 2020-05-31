@@ -14,7 +14,7 @@ describe('UniversalInterceptor', () => {
             const requestMock = mock<Request>();
 
             when(requestMock.protocol).thenReturn('https');
-            when(requestMock.host).thenReturn('helpdesk.vertical.de');
+            when(requestMock.hostname).thenReturn('helpdesk.vertical.de');
             when(requestMock.get('host')).thenReturn('helpdesk.vertical.de');
 
             request = instance(requestMock);
@@ -38,7 +38,7 @@ describe('UniversalInterceptor', () => {
             interceptor.intercept(req, next);
 
             // Assert
-            expect(req.url).toBe(`${request.protocol}://${request.host}${url}`);
+            expect(req.url).toBe(`${request.protocol}://${request.hostname}${url}`);
         });
 
         it('should add a leading slash and protocol and host', () => {
@@ -58,7 +58,7 @@ describe('UniversalInterceptor', () => {
             interceptor.intercept(req, next);
 
             // Assert
-            expect(req.url).toBe(`${request.protocol}://${request.host}/${url}`);
+            expect(req.url).toBe(`${request.protocol}://${request.hostname}/${url}`);
         });
     });
 
@@ -96,7 +96,7 @@ describe('UniversalInterceptor', () => {
             const requestMock = mock<Request>();
 
             when(requestMock.protocol).thenReturn('http');
-            when(requestMock.host).thenReturn('localhost');
+            when(requestMock.hostname).thenReturn('localhost');
             when(requestMock.get('host')).thenReturn('localhost:4200');
 
             request = instance(requestMock);
