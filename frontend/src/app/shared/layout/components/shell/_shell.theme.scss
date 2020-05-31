@@ -1,0 +1,7 @@
+@import "~@angular/material/theming";
+
+@mixin neward-shell-theme($theme, $maxWidth) {
+  .neward-shell main {
+    max-width: $maxWidth;
+  }
+}

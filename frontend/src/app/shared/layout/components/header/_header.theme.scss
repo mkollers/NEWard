@@ -1,11 +1,19 @@
 @import "~@angular/material/theming";
 
-@mixin neward-header-theme($theme) {
+@mixin neward-header-theme($theme, $maxWidth) {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
   $primary: map-get($theme, primary);
 
-  .neward-header.small {
-    background-color: mat-color($background, background);
+  .neward-header {
+    padding: 0 calc((100vW - #{$maxWidth}) / 2);
+
+    @media screen and (max-width: #{$maxWidth - 2rem}) {
+      padding: 0 1rem;
+    }
+
+    &.small {
+      background-color: mat-color($background, background);
+    }
   }
 }

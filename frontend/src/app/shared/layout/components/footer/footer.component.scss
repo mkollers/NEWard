@@ -8,7 +8,6 @@
   grid-template-columns: 1fr repeat(2, auto);
   grid-template-areas: "copyright imprint privacy";
   height: 4.5rem;
-  padding: 0 1rem;
 
   @media #{$mat-xs} {
     grid-template-columns: 1fr;
