@@ -10,5 +10,12 @@
 }
 
 main {
+  box-sizing: border-box;
+  justify-self: center;
   padding: 1rem;
+  width: 100%;
+}
+
+:host ::ng-deep router-outlet+* {
+  display: grid;
 }

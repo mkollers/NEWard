@@ -14,8 +14,8 @@ describe('UniversalInterceptor', () => {
             const requestMock = mock<Request>();
 
             when(requestMock.protocol).thenReturn('https');
-            when(requestMock.host).thenReturn('helpdesk.vertical.de');
-            when(requestMock.get('host')).thenReturn('helpdesk.vertical.de');
+            when(requestMock.hostname).thenReturn('neward.bodylife-medien.com');
+            when(requestMock.get('host')).thenReturn('neward.bodylife-medien.com');
 
             request = instance(requestMock);
             interceptor = new UniversalInterceptor(request);
@@ -23,7 +23,7 @@ describe('UniversalInterceptor', () => {
 
         it('should add protocol and host', () => {
             // Arrange
-            const url = '/assets/icons/custom/vertical.svg';
+            const url = '/assets/icons/custom/logo.svg';
             let req = new HttpRequest<any>(
                 'GET', url
             );
@@ -38,12 +38,12 @@ describe('UniversalInterceptor', () => {
             interceptor.intercept(req, next);
 
             // Assert
-            expect(req.url).toBe(`${request.protocol}://${request.host}${url}`);
+            expect(req.url).toBe(`${request.protocol}://${request.hostname}${url}`);
         });
 
         it('should add a leading slash and protocol and host', () => {
             // Arrange
-            const url = 'assets/icons/custom/vertical.svg';
+            const url = 'assets/icons/custom/logo.svg';
             let req = new HttpRequest<any>(
                 'GET', url
             );
@@ -58,7 +58,7 @@ describe('UniversalInterceptor', () => {
             interceptor.intercept(req, next);
 
             // Assert
-            expect(req.url).toBe(`${request.protocol}://${request.host}/${url}`);
+            expect(req.url).toBe(`${request.protocol}://${request.hostname}/${url}`);
         });
     });
 
@@ -71,7 +71,7 @@ describe('UniversalInterceptor', () => {
 
         it('should still work with relative uris', () => {
             // Arrange
-            const url = '/assets/icons/custom/vertical.svg';
+            const url = '/assets/icons/custom/logo.svg';
             const req = new HttpRequest<any>(
                 'GET', url
             );
@@ -96,7 +96,7 @@ describe('UniversalInterceptor', () => {
             const requestMock = mock<Request>();
 
             when(requestMock.protocol).thenReturn('http');
-            when(requestMock.host).thenReturn('localhost');
+            when(requestMock.hostname).thenReturn('localhost');
             when(requestMock.get('host')).thenReturn('localhost:4200');
 
             request = instance(requestMock);
@@ -105,7 +105,7 @@ describe('UniversalInterceptor', () => {
 
         it('should add protocol and host', () => {
             // Arrange
-            const url = '/assets/icons/custom/vertical.svg';
+            const url = '/assets/icons/custom/logo.svg';
             let req = new HttpRequest<any>(
                 'GET', url
             );

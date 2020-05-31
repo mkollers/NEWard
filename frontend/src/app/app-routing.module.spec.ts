@@ -2,6 +2,7 @@ import { NgZone, Type } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { LoadChildrenCallback, Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { LandingPageModule } from '@pages/common/landing-page/landing-page.module';
 import { PrivacyPageModule } from '@pages/common/privacy-page/privacy-page.module';
 import { ShellComponent } from '@shared/layout/components/shell/shell.component';
 
@@ -39,18 +40,20 @@ describe('AppRoutingModule', () => {
         });
 
         const cases: { path: string, module: Type<any>, component: Type<any> }[] = [
+            { path: '', module: LandingPageModule, component: ShellComponent },
             { path: 'datenschutz', module: PrivacyPageModule, component: ShellComponent }
         ];
         for (const c of cases) {
             it(`should load ${c.module.name}`, async () => {
                 // Arrange
-                const route = routes.find(r => r.path === c.path);
+                const parent = routes.find(r => r.path === '');
+                const route = parent?.children?.find(r => r.path === c.path);
 
                 // Act
                 const childs = await (route?.loadChildren as LoadChildrenCallback)();
 
                 // Assert
-                expect(route?.component).toBe(c.component);
+                expect(parent?.component).toBe(c.component);
                 expect(childs).toBe(c.module);
             });
         }

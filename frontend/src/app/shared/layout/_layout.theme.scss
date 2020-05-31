@@ -1,7 +1,9 @@
 @import './components/header/header.theme';
 @import './components/footer/footer.theme';
+@import './components/shell/shell.theme';
 
-@mixin neward-layout-theme($theme) {
-  @include neward-header-theme($theme);
-  @include neward-footer-theme($theme);
+@mixin neward-layout-theme($theme, $maxWidth) {
+  @include neward-header-theme($theme, $maxWidth);
+  @include neward-footer-theme($theme, $maxWidth);
+  @include neward-shell-theme($theme, $maxWidth);
 }

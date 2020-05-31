@@ -20,7 +20,8 @@ import { ShellComponent } from './components/shell/shell.component';
     MatIconModule
   ],
   providers: [
-    { provide: 'WINDOW', useValue: window }
+    { provide: 'WINDOW', useValue: window },
+    { provide: 'LOCATION', useValue: location }
   ]
 })
 export class LayoutModule { }

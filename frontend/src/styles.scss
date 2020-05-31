@@ -2,13 +2,13 @@
 @import './styles/bodylife.theme';
 @import './styles/common';
 
-@mixin custom-theme($theme) {
+@mixin custom-theme($theme, $maxWidth) {
   @include neward-common-theme($theme);
-  @include neward-layout-theme($theme);
+  @include neward-layout-theme($theme, $maxWidth);
 }
 
 @include angular-material-theme($bodylife-theme);
-@include custom-theme($bodylife-theme);
+@include custom-theme($bodylife-theme, 72.5rem);
 
 html,
 body {
