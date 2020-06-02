@@ -1,2 +1,3 @@
 <h2>Aufsteiger des Jahres</h2>
-{{ companies | json }}
+<div neward-company-card *ngFor="let company of companies" [company]="company">
+</div>

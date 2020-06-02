@@ -1,0 +1,11 @@
+@import "~@angular/material/theming";
+
+@mixin neward-company-card-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .neward-company-card {
+    background-color: mat-color($background, background);
+    border: solid 1px mat-color($foreground, text, .12);
+  }
+}

@@ -1,9 +1,11 @@
+@import './app/pages/common/landing-page/landing-page.theme';
 @import './app/shared/layout/layout.theme';
 @import './styles/bodylife.theme';
 @import './styles/common';
 
 @mixin custom-theme($theme, $maxWidth) {
   @include neward-common-theme($theme);
+  @include neward-landing-page-theme($theme);
   @include neward-layout-theme($theme, $maxWidth);
 }
 

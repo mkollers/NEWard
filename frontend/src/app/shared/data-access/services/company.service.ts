@@ -26,6 +26,7 @@ export class CompanyService {
   getAll(): Observable<Company[]> {
     return this._db.collection('companies').snapshotChanges().pipe(
       map(snapshots => snapshots.map(CompanyService.fromDocumentChangeAction)),
+      map(companies => [...companies, ...companies, ...companies, ...companies, ...companies, ...companies, ...companies]),
       map(companies => shuffle(companies))
     );
   }
