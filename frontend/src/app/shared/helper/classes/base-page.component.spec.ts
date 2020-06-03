@@ -1,9 +1,9 @@
 import { Injector } from '@angular/core';
+import { InjectorMock } from '@mocks/injector.mock';
 import { HeaderService } from '@shared/layout/services/header.service';
 import { instance, mock, when } from 'ts-mockito';
 
 import { BasePageComponent } from './base-page.component';
-import { InjectorMock } from 'src/mocks/injector.mock';
 
 describe('BasePageComponent', () => {
     it('should create', () => {

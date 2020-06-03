@@ -1,12 +1,11 @@
 import { ActivatedRoute } from '@angular/router';
 import { CompanyService } from '@shared/data-access/services/company.service';
-import { NEVER, of } from 'rxjs';
+import { NEVER } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jasmine';
 import { InjectorMock } from 'src/mocks/injector.mock';
 import { instance, mock, when } from 'ts-mockito';
 
 import { LandingPageComponent } from './landing-page.component';
-import { CompanyMock } from '@shared/data-access/models/company.mock';
 
 describe('LandingPageComponent', () => {
 
@@ -35,7 +34,7 @@ describe('LandingPageComponent', () => {
     const routeMock = mock<ActivatedRoute>();
 
     when(companyServiceMock.getAll()).thenReturn(m.hot('--a--a|', { a: [] }));
-    when(routeMock.data).thenReturn(m.cold('-a|', { a: { companies: []} }));
+    when(routeMock.data).thenReturn(m.cold('-a|', { a: { companies: [] } }));
 
     const route = instance(routeMock);
     const companyService = instance(companyServiceMock);
