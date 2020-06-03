@@ -5,8 +5,18 @@
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto 1fr;
   gap: 1rem;
+
+  @media #{$mat-gt-md} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$mat-lt-lg} {
+    grid-template-columns: 1fr;
+  }
 }
 
 h2 {
-  grid-area: 1 / 1 / 2 / 3;
+  @media #{$mat-gt-md} {
+    grid-area: 1 / 1 / 2 / 3;
+  }
 }
