@@ -1,4 +1,4 @@
-<section neward-intro>
+<section neward-intro @easeIn>
   <h1>Die Preisverleihung für Aufsteiger und Produktneuheiten der Fitnessbranche</h1>
   <img class="right-image" width="48" height="132.48" src="/assets/pokal-aufsteiger-des-jahres.png">
   <img class="right-image" width="48" height="132.48" src="/assets/pokal-produktneuheit-des-jahres.png">
@@ -21,4 +21,4 @@
   Siegerpokal abholen darf, darüber entscheiden die Leser unserer Magazine body LIFE, TRAINER und FUNCTIONAL TRAINING
   MAGAZIN, die Besucher unserer Webseiten sowie die Kunden, Partner und Fans der Teilnehmer.
 </section>
-<section id="aufsteiger-des-jahres" neward-company-listing [companies]="companies$ | async"></section>
+<section id="aufsteiger-des-jahres" @list neward-company-listing [companies]="companies$ | async"></section>

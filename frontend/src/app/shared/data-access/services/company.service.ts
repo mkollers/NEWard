@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Action, AngularFirestore, DocumentChangeAction, DocumentSnapshot } from '@angular/fire/firestore';
 import shuffle from 'lodash/shuffle';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { Company } from '../models/company';
 
@@ -26,7 +26,6 @@ export class CompanyService {
   getAll(): Observable<Company[]> {
     return this._db.collection('companies').snapshotChanges().pipe(
       map(snapshots => snapshots.map(CompanyService.fromDocumentChangeAction)),
-      map(companies => [...companies, ...companies, ...companies, ...companies, ...companies, ...companies, ...companies]),
       map(companies => shuffle(companies))
     );
   }
