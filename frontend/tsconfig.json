@@ -1,6 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "noImplicitAny": true,
@@ -21,9 +22,10 @@
       "dom"
     ],
     "paths": {
-      "@shared/*": ["src/app/shared/*"],
+      "@environments/*": ["src/environments/*"],
+      "@mocks/*": ["src/mocks/*"],
       "@pages/*": ["src/app/pages/*"],
-      "@environments/*": ["src/environments/*"]
+      "@shared/*": ["src/app/shared/*"]
     }
   },
   "angularCompilerOptions": {
