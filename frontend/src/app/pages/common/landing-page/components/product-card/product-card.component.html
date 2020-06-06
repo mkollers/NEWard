@@ -1,3 +1,4 @@
 <h3>{{ product.name }}</h3>
 <p>{{ product.promotion?.description }}</p>
-<img [alt]="'Produktlogo von ' + product.name" [src]="product.logo">
+<img *ngIf="product.logo" [alt]="'Produktlogo von ' + product.name" [src]="product.logo">
+<img *ngIf="!product.logo && product.manufacturer?.logo" [alt]="'Unternehmenslogo von ' + product.manufacturer.legalName" [src]="product.manufacturer.logo">
