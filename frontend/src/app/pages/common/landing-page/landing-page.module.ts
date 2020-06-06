@@ -5,16 +5,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { CompanyListingComponent } from './components/company-listing/company-listing.component';
 import { IntroComponent } from './components/intro/intro.component';
+import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingPageComponent } from './landing-page.component';
 import { CompaniesResolver } from './resolvers/companies.resolver';
+import { ProductsResolver } from './resolvers/products.resolver';
 
 @NgModule({
   declarations: [
     CompanyCardComponent,
     CompanyListingComponent,
     IntroComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ProductListingComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +26,8 @@ import { CompaniesResolver } from './resolvers/companies.resolver';
     // Material
     MatButtonModule
   ], providers: [
-    CompaniesResolver
+    CompaniesResolver,
+    ProductsResolver
   ]
 })
 export class LandingPageModule { }

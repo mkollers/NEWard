@@ -1,0 +1,22 @@
+@import '../../../../../../styles/breakpoints';
+
+:host {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, auto) 1fr;
+  gap: 1rem;
+
+  @media #{$mat-gt-md} {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media #{$mat-lt-lg} {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2 {
+  @media #{$mat-gt-md} {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+}
