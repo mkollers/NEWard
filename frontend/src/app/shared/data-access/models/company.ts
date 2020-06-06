@@ -16,5 +16,6 @@ export interface Company {
         usp: string;
         why: string;
     };
+    url: string;
     videos: string[];
 }

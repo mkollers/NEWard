@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { CompanyListingComponent } from './components/company-listing/company-listing.component';
 import { IntroComponent } from './components/intro/intro.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 import { ProductListingComponent } from './components/product-listing/product-listing.component';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingPageComponent } from './landing-page.component';
@@ -17,7 +18,8 @@ import { ProductsResolver } from './resolvers/products.resolver';
     CompanyListingComponent,
     IntroComponent,
     LandingPageComponent,
-    ProductListingComponent
+    ProductListingComponent,
+    ProductCardComponent
   ],
   imports: [
     CommonModule,

@@ -9,12 +9,14 @@ export class ProductMock implements Product {
     images = this.generateUrls();
     logo = faker.internet.url();
     manufacturer = new CompanyMock();
+    name = faker.commerce.productName();
     promotion = {
         description: faker.lorem.paragraph(10),
         usp: faker.lorem.paragraph(10),
         why: faker.lorem.paragraph(10)
     };
     releaseDate = faker.date.past().toISOString();
+    url = faker.internet.url();
     videos = this.generateUrls();
 
     generateUrls(count = faker.random.number(10)) {

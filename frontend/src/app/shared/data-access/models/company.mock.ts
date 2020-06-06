@@ -19,6 +19,7 @@ export class CompanyMock implements Company {
         usp: faker.lorem.paragraph(10),
         why: faker.lorem.paragraph(10)
     };
+    url = faker.internet.url();
     videos = this.generateUrls();
 
     generateUrls(count = faker.random.number(10)) {
