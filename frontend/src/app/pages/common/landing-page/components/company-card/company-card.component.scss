@@ -21,33 +21,37 @@
       "legalName"
       "description";
   }
-}
 
-h3 {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  h3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-P {
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
-  display: -webkit-box;
-  line-height: 1.4rem;
-  max-height: calc(5 * 1.4rem);
-  overflow: hidden;
-  text-align: justify;
-  text-overflow: ellipsis;
-}
+  P {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    display: -webkit-box;
+    line-height: 1.4rem;
+    max-height: calc(5 * 1.4rem);
+    overflow: hidden;
+    text-align: justify;
+    text-overflow: ellipsis;
 
-img {
-  align-self: center;
-  justify-self: center;
-  grid-area: logo;
-  max-height: 10rem;
-  max-width: 10rem;
+    ::ng-deep b {
+      font-weight: normal;
+    }
+  }
 
-  @media #{$mat-xs} {
-    display: none;
+  img {
+    align-self: center;
+    justify-self: center;
+    grid-area: logo;
+    max-height: 10rem;
+    max-width: 10rem;
+
+    @media #{$mat-xs} {
+      display: none;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@shared/layout/layout.module';
 
 import { CompanyCardComponent } from './components/company-card/company-card.component';
 import { CompanyListingComponent } from './components/company-listing/company-listing.component';
@@ -26,7 +27,10 @@ import { ProductsResolver } from './resolvers/products.resolver';
     LandingPageRoutingModule,
 
     // Material
-    MatButtonModule
+    MatButtonModule,
+
+    // Custom
+    LayoutModule
   ], providers: [
     CompaniesResolver,
     ProductsResolver

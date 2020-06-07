@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ShellComponent } from './components/shell/shell.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, ShellComponent],
-  exports: [ShellComponent],
+  declarations: [FooterComponent, HeaderComponent, ShellComponent, SafePipe],
+  exports: [SafePipe, ShellComponent],
   imports: [
     CommonModule,
     RouterModule,
