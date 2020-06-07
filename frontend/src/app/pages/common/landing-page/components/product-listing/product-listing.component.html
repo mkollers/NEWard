@@ -1,3 +1,4 @@
 <h2>Produktneuheit des Jahres</h2>
-<div @items neward-product-card *ngFor="let product of products" [product]="product">
-</div>
+<a [routerLink]="['/produktneuheit-des-jahres', product.id]" @items neward-product-card *ngFor="let product of products"
+  [product]="product">
+</a>

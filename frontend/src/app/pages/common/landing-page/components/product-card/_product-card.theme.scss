@@ -7,5 +7,6 @@
   .neward-product-card {
     background-color: mat-color($background, background);
     border: solid 1px mat-color($foreground, text, .12);
+    color: mat-color($foreground, text);
   }
 }
