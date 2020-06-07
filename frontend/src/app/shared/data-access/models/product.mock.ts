@@ -1,24 +1,21 @@
 import * as faker from 'faker';
 
-import { AddressMock } from './address.mock';
-import { Company } from './company';
-import { PersonMock } from './person.mock';
+import { CompanyMock } from './company.mock';
+import { Product } from './product';
 
-export class CompanyMock implements Company {
-    address = new AddressMock();
-    documents = this.generateUrls();
-    foundingDate = faker.date.past().toISOString();
+export class ProductMock implements Product {
     id = faker.random.uuid();
+    documents = this.generateUrls();
     images = this.generateUrls();
-    legalName = faker.company.companyName();
     logo = faker.internet.url();
-    person = new PersonMock();
+    manufacturer = new CompanyMock();
+    name = faker.commerce.productName();
     promotion = {
-        achieved: faker.lorem.paragraph(10),
         description: faker.lorem.paragraph(10),
         usp: faker.lorem.paragraph(10),
         why: faker.lorem.paragraph(10)
     };
+    releaseDate = faker.date.past().toISOString();
     url = faker.internet.url();
     videos = this.generateUrls();
 

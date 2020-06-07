@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LandingPageComponent } from './landing-page.component';
 import { CompaniesResolver } from './resolvers/companies.resolver';
+import { ProductsResolver } from './resolvers/products.resolver';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent, resolve: { companies: CompaniesResolver } }
+  { path: '', component: LandingPageComponent, resolve: { companies: CompaniesResolver, products: ProductsResolver } }
 ];
 
 @NgModule({

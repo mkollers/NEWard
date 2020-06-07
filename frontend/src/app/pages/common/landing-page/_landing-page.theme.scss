@@ -1,5 +1,7 @@
 @import "./components/company-card/company-card.theme";
+@import "./components/product-card/product-card.theme";
 
 @mixin neward-landing-page-theme($theme) {
   @include neward-company-card-theme($theme);
+  @include neward-product-card-theme($theme);
 }
