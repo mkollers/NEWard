@@ -5,6 +5,7 @@ export interface Company {
     id: string;
     address: Address;
     documents: string[];
+    email: string;
     foundingDate: string;
     images: string[];
     legalName: string;
@@ -16,6 +17,7 @@ export interface Company {
         usp: string;
         why: string;
     };
+    telephone: string;
     url: string;
     videos: string[];
 }

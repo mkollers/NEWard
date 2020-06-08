@@ -1,1 +1,50 @@
-<p>product-page works!</p>
+<ng-container *ngIf="(product$ | async) as product">
+  <section class="general">
+    <h1>{{ product?.name }}</h1>
+    <span *ngIf="product?.releaseDate">
+      Produktlaunch: {{ product?.releaseDate | date: 'dd.MM.yyyy' }}
+    </span>
+  </section>
+  <section class="video" *ngIf="product.videos?.length > 0">
+    <iframe [src]="product.videos[0] | safe: 'resourceUrl'" frameborder="0"
+      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </section>
+  <section class="description">
+    <h2>Kurzbeschreibung des Produkts</h2>
+    <p [innerHTML]="product?.promotion.description | safe: 'html'"></p>
+  </section>
+  <section class="images" *ngIf="product.images?.length">
+    <swiper>
+      <div class="wrapper" *ngFor="let image of product.images">
+        <a class="image-wrapper" (click)="openOverlay(image)">
+          <img [src]="image | safe: 'resourceUrl'">
+        </a>
+      </div>
+    </swiper>
+  </section>
+  <section class="usp">
+    <h2>Was macht unser Produkt besonders? USP?</h2>
+    <p [innerHTML]="product?.promotion.usp | safe: 'html'"></p>
+  </section>
+  <section class="why">
+    <h2>Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt voten? </h2>
+    <p [innerHTML]="product?.promotion.why | safe: 'html'"></p>
+  </section>
+  <section class="company">
+    <img class="logo" *ngIf="product?.logo" [alt]="'Produktlogo von ' + product?.name" [src]="product?.logo">
+    <img class="logo" *ngIf="!product?.logo && product?.manufacturer?.logo"
+      [alt]="'Unternehmenslogo von ' + product?.manufacturer?.legalName" [src]="product?.manufacturer?.logo">
+    <section neward-contact [company]="product?.manufacturer"></section>
+  </section>
+  <!-- <section class="masonry">
+    <div class="item" *ngFor="let image of product.images">
+      <img [src]="image">
+    </div>
+  </section>
+  <ng-container *ngFor="let video of product?.videos">
+    <div class="iframe-container" *ngIf="product?.videos">
+      <iframe [src]="video | safe: 'resourceUrl'" frameborder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </ng-container> -->
+</ng-container>
