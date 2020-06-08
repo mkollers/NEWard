@@ -17,7 +17,8 @@ const routes: Routes = [
     path: 'datenschutz',
     component: ShellComponent,
     loadChildren: () => import('./pages/common/privacy-page/privacy-page.module').then(m => m.PrivacyPageModule)
-  }
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

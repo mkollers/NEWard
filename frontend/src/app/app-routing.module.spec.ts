@@ -4,6 +4,7 @@ import { LoadChildrenCallback, Router, Routes } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LandingPageModule } from '@pages/common/landing-page/landing-page.module';
 import { PrivacyPageModule } from '@pages/common/privacy-page/privacy-page.module';
+import { ProductPageModule } from '@pages/product-page/product-page.module';
 import { ShellComponent } from '@shared/layout/components/shell/shell.component';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +42,7 @@ describe('AppRoutingModule', () => {
 
         const cases: { path: string, module: Type<any>, component: Type<any> }[] = [
             { path: '', module: LandingPageModule, component: ShellComponent },
+            { path: 'produktneuheit-des-jahres/:id', module: ProductPageModule, component: ShellComponent },
             { path: 'datenschutz', module: PrivacyPageModule, component: ShellComponent }
         ];
         for (const c of cases) {
