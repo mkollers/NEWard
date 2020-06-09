@@ -6,12 +6,18 @@ import { RouterModule } from '@angular/router';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { OverlayImageDialogComponent } from './components/overlay-image-dialog/overlay-image-dialog.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { SafePipe } from './pipes/safe.pipe';
-import { OverlayImageDialogComponent } from './components/overlay-image-dialog/overlay-image-dialog.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, ShellComponent, SafePipe, OverlayImageDialogComponent],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    ShellComponent,
+    SafePipe,
+    OverlayImageDialogComponent
+  ],
   exports: [SafePipe, ShellComponent],
   imports: [
     CommonModule,
