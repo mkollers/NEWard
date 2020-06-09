@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CompanyModule } from '@shared/company/company.module';
 import { LayoutModule } from '@shared/layout/layout.module';
-import { SWIPER_CONFIG, SwiperConfigInterface, SwiperModule } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface, SwiperModule, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 
 import { ProductPageRoutingModule } from './product-page-routing.module';
 import { ProductPageComponent } from './product-page.component';
