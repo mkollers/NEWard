@@ -1,11 +1,14 @@
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { InjectorMock } from '@mocks/injector.mock';
 import { ProductMock } from '@shared/data-access/models/product.mock';
 import { ProductService } from '@shared/data-access/services/product.service';
+import { OverlayImageDialogComponent } from '@shared/layout/components/overlay-image-dialog/overlay-image-dialog.component';
 import { HeaderService } from '@shared/layout/services/header.service';
+import * as faker from 'faker';
 import { NEVER } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jasmine';
-import { anyString, instance, mock, when } from 'ts-mockito';
+import { anyString, instance, mock, verify, when, anything } from 'ts-mockito';
 
 import { ProductPageComponent } from './product-page.component';
 
@@ -56,5 +59,30 @@ describe('ProductPageComponent', () => {
 
     // Assert
     m.expect(component.product$).toBeObservable(expected$);
+  }));
+
+  it('should open the image overlay', marbles(m => {
+    // Arrange
+    const matDialogMock = mock<MatDialog>();
+    const url = faker.internet.url();
+    when(productServiceMock.getById(anyString())).thenReturn(NEVER);
+    when(routeMock.parent).thenReturn(null);
+    when(routeMock.data).thenReturn(NEVER);
+
+    const route = instance(routeMock);
+    const productService = instance(productServiceMock);
+    const headerService = instance(headerServiceMock);
+    const matDialog = instance(matDialogMock);
+    const injector = InjectorMock.create(
+      [MatDialog, matDialog], [HeaderService, headerService], [ProductService, productService], [ActivatedRoute, route]
+    );
+
+    // Act
+    const component = new ProductPageComponent(injector);
+    component.openOverlay(url);
+
+    // Assert
+    verify(matDialogMock.open(OverlayImageDialogComponent, anything())).called();
+    expect().nothing();
   }));
 });
