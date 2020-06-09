@@ -2,7 +2,7 @@ import { Company } from './company';
 
 export interface Product {
     id: string;
-    documents: string[];
+    documents: { name: string; url: string; }[];
     images: string[];
     logo: string;
     manufacturer: Company;

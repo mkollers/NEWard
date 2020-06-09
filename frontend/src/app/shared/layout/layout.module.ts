@@ -8,9 +8,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { SafePipe } from './pipes/safe.pipe';
+import { OverlayImageDialogComponent } from './components/overlay-image-dialog/overlay-image-dialog.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, ShellComponent, SafePipe],
+  declarations: [FooterComponent, HeaderComponent, ShellComponent, SafePipe, OverlayImageDialogComponent],
   exports: [SafePipe, ShellComponent],
   imports: [
     CommonModule,

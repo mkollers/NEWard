@@ -6,7 +6,10 @@ import { CompaniesResolver } from './resolvers/companies.resolver';
 import { ProductsResolver } from './resolvers/products.resolver';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent, resolve: { companies: CompaniesResolver, products: ProductsResolver } }
+  {
+    path: '', component: LandingPageComponent,
+    resolve: { companies: CompaniesResolver, products: ProductsResolver }, runGuardsAndResolvers: 'always'
+  }
 ];
 
 @NgModule({

@@ -39,7 +39,7 @@ export class LandingPageComponent extends BasePageComponent {
     const service = this._injector.get(CompanyService);
     const route = this._injector.get(ActivatedRoute);
     const companies$ = route.data.pipe(map(data => data.companies));
-    const hotCompanies$ = service.getAll().pipe(skip(1));
+    const hotCompanies$ = service.getAll();
     return merge(companies$, hotCompanies$);
   }
 
@@ -47,7 +47,7 @@ export class LandingPageComponent extends BasePageComponent {
     const service = this._injector.get(ProductService);
     const route = this._injector.get(ActivatedRoute);
     const products$ = route.data.pipe(map(data => data.products));
-    const hotProducts$ = service.getAll().pipe(skip(1));
+    const hotProducts$ = service.getAll();
     return merge(products$, hotProducts$);
   }
 }

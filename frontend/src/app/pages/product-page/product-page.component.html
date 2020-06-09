@@ -22,6 +22,10 @@
       </div>
     </swiper>
   </section>
+  <section class="documents" *ngIf="product.documents?.length > 0">
+    <h2>Dokumente</h2>
+    <a *ngFor="let document of product.documents" download [href]="document.url | safe: 'url'" rel="noopener" target="_blank">{{ document.name }}</a> 
+  </section>
   <section class="usp">
     <h2>Was macht unser Produkt besonders? USP?</h2>
     <p [innerHTML]="product?.promotion.usp | safe: 'html'"></p>

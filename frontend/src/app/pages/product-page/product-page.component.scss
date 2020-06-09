@@ -5,10 +5,10 @@
   grid-template-areas:
     "general company"
     "video company"
-    "description company"
+    "description documents"
     "images images"
-    "usp void"
-    "why void";
+    "usp usp"
+    "why why";
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(10, auto);
   gap: 1.5rem 3rem;
@@ -30,6 +30,10 @@ p {
 
 .company {
   grid-area: company;
+}
+
+.documents {
+  grid-area: documents;
 }
 
 .logo {
