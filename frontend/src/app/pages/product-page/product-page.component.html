@@ -2,7 +2,7 @@
   <section class="general">
     <h1>{{ product?.name }}</h1>
     <span *ngIf="product?.releaseDate">
-      Produktlaunch: {{ product?.releaseDate | date: 'dd.MM.yyyy' }}
+      Produktlaunch: {{ product?.releaseDate | date: 'dd. MMMM yyyy' }}
     </span>
   </section>
   <section class="video" *ngIf="product.videos?.length > 0">
