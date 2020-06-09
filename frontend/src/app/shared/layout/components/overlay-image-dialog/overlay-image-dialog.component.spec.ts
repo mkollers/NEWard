@@ -1,25 +1,19 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef } from '@angular/material/dialog';
+import * as faker from 'faker';
+import { instance, mock } from 'ts-mockito';
 
 import { OverlayImageDialogComponent } from './overlay-image-dialog.component';
 
 describe('OverlayImageDialogComponent', () => {
-  let component: OverlayImageDialogComponent;
-  let fixture: ComponentFixture<OverlayImageDialogComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ OverlayImageDialogComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(OverlayImageDialogComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create', () => {
+    // Arrange
+    const dialogrefMock = mock<MatDialogRef<OverlayImageDialogComponent>>();
+    const dialogref = instance(dialogrefMock);
+
+    // Act
+    const component = new OverlayImageDialogComponent(dialogref, faker.internet.url());
+
+    // Assert
     expect(component).toBeTruthy();
   });
 });

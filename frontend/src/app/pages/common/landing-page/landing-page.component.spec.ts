@@ -46,7 +46,7 @@ describe('LandingPageComponent', () => {
     const companyService = instance(companyServiceMock);
     const productService = instance(productServiceMock);
     const injector = InjectorMock.create([CompanyService, companyService], [ProductService, productService], [ActivatedRoute, route]);
-    const expected$ = m.hot('-a---a|', { a: [] });
+    const expected$ = m.hot('-aa--a|', { a: [] });
 
     // Act
     const component = new LandingPageComponent(injector);

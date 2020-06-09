@@ -49,7 +49,7 @@ describe('ProductPageComponent', () => {
     const productService = instance(productServiceMock);
     const headerService = instance(headerServiceMock);
     const injector = InjectorMock.create([HeaderService, headerService], [ProductService, productService], [ActivatedRoute, route]);
-    const expected$ = m.hot('-a---a|', { a: product });
+    const expected$ = m.hot('-aa--a|', { a: product });
 
     // Act
     const component = new ProductPageComponent(injector);

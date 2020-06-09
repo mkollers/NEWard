@@ -5,7 +5,7 @@ import { Product } from './product';
 
 export class ProductMock implements Product {
     id = faker.random.uuid();
-    documents = this.generateUrls();
+    documents = [{ name: faker.lorem.word(), url: faker.internet.url() }];
     images = this.generateUrls();
     logo = faker.internet.url();
     manufacturer = new CompanyMock();
