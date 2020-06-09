@@ -2,9 +2,11 @@
 @import './app/pages/product-page/product-page.theme';
 @import './app/shared/layout/layout.theme';
 @import './styles/bodylife.theme';
+@import './styles/button';
 @import './styles/common';
 
 @mixin custom-theme($theme, $maxWidth) {
+  @include neward-button-theme($theme);
   @include neward-common-theme($theme);
   @include neward-landing-page-theme($theme);
   @include neward-layout-theme($theme, $maxWidth);
