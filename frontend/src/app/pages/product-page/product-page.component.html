@@ -2,7 +2,7 @@
   <section class="general">
     <h1>{{ product?.name }}</h1>
     <span *ngIf="product?.releaseDate">
-      Produktlaunch: {{ product?.releaseDate | date: 'dd.MM.yyyy' }}
+      Produktlaunch: {{ product?.releaseDate | date: 'dd. MMMM yyyy' }}
     </span>
   </section>
   <section class="video" *ngIf="product.videos?.length > 0">
@@ -36,19 +36,8 @@
   </section>
   <section class="company">
     <img class="logo" *ngIf="product?.logo" [alt]="'Produktlogo von ' + product?.name" [src]="product?.logo">
-    <img class="logo" *ngIf="!product?.logo && product?.manufacturer?.logo"
+    <img class="logo" *ngIf="product?.manufacturer?.logo"
       [alt]="'Unternehmenslogo von ' + product?.manufacturer?.legalName" [src]="product?.manufacturer?.logo">
     <section neward-contact [company]="product?.manufacturer"></section>
   </section>
-  <!-- <section class="masonry">
-    <div class="item" *ngFor="let image of product.images">
-      <img [src]="image">
-    </div>
-  </section>
-  <ng-container *ngFor="let video of product?.videos">
-    <div class="iframe-container" *ngIf="product?.videos">
-      <iframe [src]="video | safe: 'resourceUrl'" frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </ng-container> -->
 </ng-container>

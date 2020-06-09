@@ -8,7 +8,7 @@ import { HeaderService } from '@shared/layout/services/header.service';
 import * as faker from 'faker';
 import { NEVER } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jasmine';
-import { anyString, instance, mock, verify, when, anything } from 'ts-mockito';
+import { anyString, anything, instance, mock, verify, when } from 'ts-mockito';
 
 import { ProductPageComponent } from './product-page.component';
 
