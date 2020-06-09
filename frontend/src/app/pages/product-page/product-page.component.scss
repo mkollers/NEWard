@@ -5,6 +5,7 @@
   grid-template-areas:
     "general company"
     "video company"
+    "description company"
     "description documents"
     "images images"
     "usp usp"
@@ -30,6 +31,8 @@ p {
 
 .company {
   grid-area: company;
+  display: grid;
+  gap: 1rem;
 }
 
 .documents {
