@@ -49,6 +49,10 @@
     ::ng-deep b {
       font-weight: normal;
     }
+
+    ::ng-deep br {
+      display: none;
+    }
   }
 
   img {
