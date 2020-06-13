@@ -1,5 +1,9 @@
 @import "~@angular/material/theming";
 
+* {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -9,8 +13,13 @@ ul {
   margin: 0;
 }
 
+h1 {
+  font-size: 2rem;
+}
+
 p {
   line-height: 1.4;
+  text-align: justify;
 }
 
 a {
@@ -19,12 +28,6 @@ a {
   &:not(.mat-button-base):hover {
     text-decoration: underline;
   }
-}
-
-ul {
-  display: grid;
-  gap: .5rem;
-  list-style: none;
 }
 
 @mixin neward-common-theme($theme) {

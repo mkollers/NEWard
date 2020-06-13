@@ -5,6 +5,7 @@ import { CompanyModule } from '@shared/company/company.module';
 import { LayoutModule } from '@shared/layout/layout.module';
 import { SwiperConfigInterface, SwiperModule, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 
+import { ProductDesktopViewComponent } from './components/product-desktop-view/product-desktop-view.component';
 import { ProductPageRoutingModule } from './product-page-routing.module';
 import { ProductPageComponent } from './product-page.component';
 import { ProductResolver } from './resolvers/product.resolver';
@@ -18,7 +19,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [ProductPageComponent],
+  declarations: [ProductPageComponent, ProductDesktopViewComponent],
   imports: [
     CommonModule,
     ProductPageRoutingModule,

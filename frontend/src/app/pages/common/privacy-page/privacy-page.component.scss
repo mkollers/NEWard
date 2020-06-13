@@ -7,3 +7,9 @@
 p {
   text-align: justify;
 }
+
+ul {
+  display: grid;
+  gap: .5rem;
+  list-style: none;
+}
