@@ -1,0 +1,95 @@
+@import './breakpoints';
+
+.logo {
+  padding: 1rem;
+  width: 100%;
+}
+
+.slider {
+  overflow: hidden;
+  margin: 0 -.5rem;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  .slider-element {
+    cursor: pointer;
+    display: block;
+    margin: 0 .5rem;
+    transition: all ease-in-out 250ms;
+    width: 100% !important;
+
+    @media #{$mat-sm} {
+      & {
+        width: 50% !important;
+        width: calc(50% - 1rem) !important;
+      }
+    }
+
+    @media #{$mat-gt-sm} {
+      & {
+        width: 33.3333% !important;
+        width: calc(33.3333% - 1rem) !important;
+      }
+    }
+
+    &:hover {
+      box-shadow: 0 .375rem .75rem rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
+      transition: all ease-in-out 250ms;
+    }
+  }
+
+  .swiper-wrapper {
+    align-items: center;
+  }
+
+  .swiper-button-disabled {
+    display: none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    -webkit-tap-highlight-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    background-size: 1.25rem 1.25rem;
+    border-radius: 1000px;
+    height: 2.5rem;
+    width: 2.5rem;
+    outline: none;
+    top: 50%;
+  }
+
+  .swiper-button-prev:after,
+  .swiper-button-next:after {
+    display: none;
+  }
+
+  .swiper-button-prev {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTEuNjcgMy44N0w5LjkgMi4xIDAgMTJsOS45IDkuOSAxLjc3LTEuNzdMMy41NCAxMnoiLz48cGF0aCBmaWxsPSJub25lIiBkPSJNMCAwaDI0djI0SDB6Ii8+PC9zdmc+);
+    background-position: 13px center;
+    left: 0.625rem + .5rem;
+    background-repeat: no-repeat;
+  }
+
+  .swiper-button-next {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNNS44OCA0LjEyTDEzLjc2IDEybC03Ljg4IDcuODhMOCAyMmwxMC0xMEw4IDJ6Ii8+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgyNHYyNEgweiIvPjwvc3ZnPg==);
+    background-position: 11px center;
+    right: .625rem + .5rem;
+    background-repeat: no-repeat;
+  }
+}
+
+@mixin neward-image-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .logo,
+  .slider-element {
+    background-color: mat-color($background, background);
+    border: solid 1px mat-color($foreground, text, .12);
+  }
+}

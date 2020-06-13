@@ -1,0 +1,16 @@
+:host {
+  display: grid;
+  gap: 1.5rem;
+
+  ::ng-deep .logo {
+    max-width: 250px;
+  }
+}
+
+h1 {
+  margin-bottom: -1rem;
+}
+
+h2 {
+  margin-bottom: -.5rem;
+}
