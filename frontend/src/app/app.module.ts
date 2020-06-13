@@ -5,6 +5,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@environments/environment';
 import { LayoutModule } from '@shared/layout/layout.module';
 
@@ -21,6 +22,7 @@ registerLocaleData(localeDe, 'de');
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
 
     // Firebase
     AngularFireModule.initializeApp(environment.firebase),
