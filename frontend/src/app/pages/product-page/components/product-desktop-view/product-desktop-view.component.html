@@ -24,7 +24,7 @@
 </section>
 <section class="slider full-width" *ngIf="product?.images?.length > 0">
   <swiper>
-    <a class="slider-element" (click)="openOverlay.emit(image)" *ngFor="let image of product.images">
+    <a class="slider-element" (click)="openOverlay.emit(image)" *ngFor="let image of product?.images">
       <img itemtype="http://schema.org/image" [src]="image | safe: 'resourceUrl'">
     </a>
   </swiper>

@@ -1,0 +1,32 @@
+<h1 itemtype="http://schema.org/Name">{{ product?.name }}</h1>
+<span *ngIf="product?.releaseDate as releaseDate">
+  <span>Produktlaunch:</span>&nbsp;<span
+    itemtype="http://schema.org/releaseDate">{{ releaseDate | date: 'dd. MMMM yyyy' }}</span>
+</span>
+<img class="logo" itemtype="http://schema.org/logo" *ngIf="product?.logo as logo"
+  [alt]="'Produktlogo von ' + product?.name" [src]="logo">
+<h2>Kurzbeschreibung des Produkts</h2>
+<p itemtype="http://schema.org/description" [innerHTML]="product?.promotion?.description | safe: 'html'"></p>
+<section class="video" *ngFor="let video of product?.videos">
+  <iframe [src]="video | safe: 'resourceUrl'" frameborder="0"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+<h2>Was macht unser Produkt besonders? USP?</h2>
+<p [innerHTML]="product?.promotion.usp | safe: 'html'"></p>
+<section class="slider" *ngIf="product?.images?.length > 0">
+  <swiper>
+    <a class="slider-element" (click)="openOverlay.emit(image)" *ngFor="let image of product?.images">
+      <img itemtype="http://schema.org/image" [src]="image | safe: 'resourceUrl'">
+    </a>
+  </swiper>
+</section>
+<h2>Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt
+  voten? </h2>
+<p [innerHTML]="product?.promotion.why | safe: 'html'"></p>
+<ng-container class="documents" *ngIf="product?.documents?.length > 0">
+  <h2>Dokumente</h2>
+  <a *ngFor="let document of product?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
+    target="_blank">{{ document.name }}</a>
+</ng-container>
+<section itemscope itemtype="http://schema.org/manufacturer" neward-contact [company]="product?.manufacturer">
+</section>

@@ -24,7 +24,7 @@
     @media #{$mat-sm} {
       & {
         width: 50% !important;
-        width: calc(50% - .5rem) !important;
+        width: calc(50% - 1rem) !important;
       }
     }
 
