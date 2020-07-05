@@ -1,0 +1,16 @@
+@import "~@angular/material/theming";
+
+@mixin neward-company-page-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .neward-company-page {
+
+    .image-wrapper,
+    .swiper-button-next,
+    .swiper-button-prev {
+      background-color: mat-color($background, background);
+      border: solid 1px mat-color($foreground, text, .12);
+    }
+  }
+}

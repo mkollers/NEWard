@@ -1,4 +1,5 @@
 @import './app/pages/common/landing-page/landing-page.theme';
+@import './app/pages/company-page/company-page.theme';
 @import './app/pages/product-page/product-page.theme';
 @import './app/shared/layout/layout.theme';
 @import './styles/bodylife.theme';
@@ -13,6 +14,7 @@
   @include neward-image-theme($theme);
   @include neward-landing-page-theme($theme);
   @include neward-layout-theme($theme, $maxWidth);
+  @include neward-company-page-theme($theme);
   @include neward-product-page-theme($theme);
   @include neward-video-theme($theme);
 }

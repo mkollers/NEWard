@@ -1,4 +1,4 @@
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { InjectorMock } from '@mocks/injector.mock';
@@ -7,7 +7,7 @@ import { ProductService } from '@shared/data-access/services/product.service';
 import { OverlayImageDialogComponent } from '@shared/layout/components/overlay-image-dialog/overlay-image-dialog.component';
 import { HeaderService } from '@shared/layout/services/header.service';
 import * as faker from 'faker';
-import { NEVER, Observable } from 'rxjs';
+import { NEVER } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jasmine';
 import { anyString, anything, instance, mock, verify, when } from 'ts-mockito';
 
