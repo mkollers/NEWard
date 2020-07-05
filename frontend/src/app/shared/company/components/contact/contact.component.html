@@ -5,8 +5,7 @@
     <ng-container *ngIf="company.address as address">
       <span class="street-address" *ngIf="address.streetAddress">{{ address.streetAddress }}</span>
       <span class="postal-code address-locality">
-        <span class="postal-code" *ngIf="address.postalCode">{{ address.postalCode }}</span>&nbsp;
-        <span class="address-locality" *ngIf="address.addressLocality">{{ address.addressLocality }}</span>
+        <span class="postal-code" *ngIf="address.postalCode">{{ address.postalCode }}</span>&nbsp;<span class="address-locality" *ngIf="address.addressLocality">{{ address.addressLocality }}</span>
       </span>
     </ng-container>
   </section>

@@ -1,0 +1,31 @@
+<h1 itemtype="http://schema.org/Name">{{ company?.legalName }}</h1>
+<span *ngIf="company?.foundingDate as releaseDate">
+  <span>Start in der Fitnessbranche:</span>&nbsp;<span
+    itemtype="http://schema.org/foundingDate">{{ releaseDate | date: 'yyyy' }}</span>
+</span>
+<h2>Kurzbeschreibung des Unternehmens</h2>
+<p itemtype="http://schema.org/description" [innerHTML]="company?.promotion?.description | safe: 'html'"></p>
+<section class="video" *ngFor="let video of company?.videos">
+  <iframe [src]="video | safe: 'resourceUrl'" frameborder="0"
+    allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+<h2>Was macht uns besonders? USP?</h2>
+<p [innerHTML]="company?.promotion.usp | safe: 'html'"></p>
+<section class="slider full-width" *ngIf="company?.images?.length > 0">
+  <swiper>
+    <a class="slider-element" (click)="openOverlay.emit(image)" *ngFor="let image of company?.images">
+      <img itemtype="http://schema.org/image" [src]="image | safe: 'resourceUrl'">
+    </a>
+  </swiper>
+</section>
+<h2>Was wurde seit dem 1. Juni 2019 erreicht?</h2>
+<p [innerHTML]="company?.promotion.achieved | safe: 'html'"></p>
+<h2>Weshalb sind wir der Aufsteiger des Jahres? Warum sollte man für uns
+  voten? </h2>
+<p [innerHTML]="company?.promotion.why | safe: 'html'"></p>
+<ng-container class="documents" *ngIf="company?.documents?.length > 0">
+  <h2>Dokumente</h2>
+  <a *ngFor="let document of company?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
+    target="_blank">{{ document.name }}</a>
+</ng-container>
+<section neward-contact [company]="company"> </section>

@@ -6,7 +6,7 @@
   column-gap: 1rem;
   display: grid;
   grid-template-areas:
-    "legalName logo"
+    "name logo"
     "description logo";
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(2, auto);
@@ -14,12 +14,20 @@
   overflow: hidden;
   padding: 1rem 1.5rem;
   row-gap: .5rem;
+  text-decoration: none !important;
+  transition: all ease-in-out 250ms;
 
   @media #{$mat-xs} {
     grid-template-columns: 1fr;
     grid-template-areas:
       "legalName"
       "description";
+  }
+
+  &:hover {
+    box-shadow: 0 .375rem .75rem rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    transition: all ease-in-out 250ms;
   }
 
   h3 {
