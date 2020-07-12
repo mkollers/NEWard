@@ -6,7 +6,7 @@ import { PersonMock } from './person.mock';
 
 export class CompanyMock implements Company {
     address = new AddressMock();
-    documents = this.generateUrls();
+    documents = [{ name: faker.lorem.word(), url: faker.internet.url() }];
     email = faker.internet.email();
     telephone = faker.phone.phoneNumber();
     foundingDate = faker.date.past().toISOString();

@@ -1,0 +1,8 @@
+<ng-container *ngIf="(company$ | async) as company">
+  <section *ngIf="(view$ | async) === 'desktop'; else mobile" itemscope itemtype="http://schema.org/Organization"
+    neward-company-desktop-view (openOverlay)="openOverlay($event)" [company]="company"></section>
+  <ng-template #mobile>
+    <section itemscope itemtype="http://schema.org/Organization" neward-company-mobile-view
+      (openOverlay)="openOverlay($event)" [company]="company"></section>
+  </ng-template>
+</ng-container>

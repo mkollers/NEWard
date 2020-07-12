@@ -9,6 +9,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/common/landing-page/landing-page.module').then(m => m.LandingPageModule)
   },
   {
+    path: 'aufsteiger-des-jahres/:id',
+    component: ShellComponent,
+    loadChildren: () => import('./pages/company-page/company-page.module').then(m => m.CompanyPageModule)
+  },
+  {
     path: 'produktneuheit-des-jahres/:id',
     component: ShellComponent,
     loadChildren: () => import('./pages/product-page/product-page.module').then(m => m.ProductPageModule)

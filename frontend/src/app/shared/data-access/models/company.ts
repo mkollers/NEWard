@@ -4,7 +4,7 @@ import { Person } from './person';
 export interface Company {
     id: string;
     address: Address;
-    documents: string[];
+    documents: { name: string; url: string; }[];
     email: string;
     foundingDate: string;
     images: string[];
