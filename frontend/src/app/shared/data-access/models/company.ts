@@ -10,7 +10,8 @@ export interface Company {
     images: string[];
     legalName: string;
     logo: string;
-    person: Person;
+    person?: Person;
+    persons: Person[];
     promotion: {
         achieved: string;
         description: string;

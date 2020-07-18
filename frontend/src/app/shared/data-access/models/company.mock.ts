@@ -14,7 +14,7 @@ export class CompanyMock implements Company {
     images = this.generateUrls();
     legalName = faker.company.companyName();
     logo = faker.internet.url();
-    person = new PersonMock();
+    persons = [new PersonMock()];
     promotion = {
         achieved: faker.lorem.paragraph(10),
         description: faker.lorem.paragraph(10),
