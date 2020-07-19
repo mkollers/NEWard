@@ -9,7 +9,6 @@
 @import './styles/video';
 
 @mixin custom-theme($theme, $maxWidth) {
-  @include neward-button-theme($theme);
   @include neward-common-theme($theme);
   @include neward-image-theme($theme);
   @include neward-landing-page-theme($theme);
