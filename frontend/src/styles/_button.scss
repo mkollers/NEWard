@@ -8,10 +8,10 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.mat-button,
-.mat-icon-button,
-.mat-stroked-button,
-.mat-flat-button  {
+body .mat-button,
+body .mat-icon-button,
+body .mat-stroked-button,
+body .mat-flat-button  {
   @include button-reset();
   border-radius: 2px;
   font-family: Roboto, sans-serif;
