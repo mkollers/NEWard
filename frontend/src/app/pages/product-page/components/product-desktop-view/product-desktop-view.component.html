@@ -12,6 +12,7 @@
   <p itemtype="http://schema.org/description" [innerHTML]="product?.promotion?.description | safe: 'html'"></p>
 </section>
 <section class="right column">
+  <button mat-flat-button color="primary">Jetzt abstimmen</button>
   <img class="logo" itemtype="http://schema.org/logo" *ngIf="product?.logo as logo"
     [alt]="'Produktlogo von ' + product?.name" [src]="logo">
   <section itemscope itemtype="http://schema.org/manufacturer" neward-contact [company]="product?.manufacturer">

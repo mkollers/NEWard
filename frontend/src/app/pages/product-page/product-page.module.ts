@@ -10,6 +10,7 @@ import { ProductMobileViewComponent } from './components/product-mobile-view/pro
 import { ProductPageRoutingModule } from './product-page-routing.module';
 import { ProductPageComponent } from './product-page.component';
 import { ProductResolver } from './resolvers/product.resolver';
+import { MatButtonModule } from '@angular/material/button';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -26,6 +27,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     ProductPageRoutingModule,
 
     // Material
+    MatButtonModule,
     MatDialogModule,
 
     // Custom
