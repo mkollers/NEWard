@@ -53,6 +53,19 @@
     ::ng-deep br {
       display: none;
     }
+
+    ::ng-deep ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ::ng-deep li {
+      display: inline;
+    }
+
+    ::ng-deep li::after {
+      content: ' ';
+    }
   }
 
   img {
