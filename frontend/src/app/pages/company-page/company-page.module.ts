@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CompanyModule } from '@shared/company/company.module';
 import { LayoutModule } from '@shared/layout/layout.module';
@@ -10,7 +11,6 @@ import { CompanyPageComponent } from './company-page.component';
 import { CompanyDesktopViewComponent } from './components/company-desktop-view/company-desktop-view.component';
 import { CompanyMobileViewComponent } from './components/company-mobile-view/company-mobile-view.component';
 import { CompanyResolver } from './resolvers/company.resolver';
-import { MatButtonModule } from '@angular/material/button';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',

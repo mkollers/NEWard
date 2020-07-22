@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Inject } from '@angular/core';
-import { HeaderService } from '@shared/layout/services/header.service';
-import { Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
+import { HeaderService } from '@shared/layout/services/header.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'header[neward-header]',
