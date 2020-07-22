@@ -7,10 +7,10 @@ export const OnRegistrationWrite = functions
     .region('europe-west3')
     .firestore
     .document('registrations/{email}')
-    .onCreate(async (event, context) => {
+    .onWrite(async (event, context) => {
         try {
             const email: string = context.params.email;
-            const data = event.data();
+            const data = event.after.data();
             if (!data) {
                 console.warn(`Registration for ${email} does not exist. Skipping function execution`);
                 return;

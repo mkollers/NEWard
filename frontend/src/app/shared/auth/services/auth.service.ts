@@ -17,7 +17,7 @@ export class AuthService {
     await this._db
       .collection('registrations')
       .doc(email)
-      .set({ url });
+      .set({ url, date: new Date().toISOString() });
     // Todo analytics tracking
   }
 

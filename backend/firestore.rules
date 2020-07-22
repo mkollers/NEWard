@@ -4,8 +4,8 @@ service cloud.firestore {
       allow read, write: if false;
     }
     match /registrations/{email} {
-      allow create: if true;
-      allow read, update, delete: if false;
+      allow create, update: if true;
+      allow read, delete: if false;
     }
 
     // True if the access token is not older than 4 hours
