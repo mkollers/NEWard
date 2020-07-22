@@ -21,12 +21,12 @@
     grid-template-areas:
       "action logo";
 
-    button {
+    .mat-flat-button {
       align-self: baseline;
     }
   }
 
-  button {
+  .mat-flat-button {
     display: none;
     transition: all 200ms ease-in-out;
   }
@@ -45,12 +45,12 @@
       "cta cta";
     padding: 8px 16px;
 
-    button {
+    .mat-flat-button {
       align-self: baseline;
     }
   }
 
-  button {
+  .mat-flat-button {
     display: inline-block;
     transition: all 200ms ease-in-out;
   }
