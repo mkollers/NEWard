@@ -1,0 +1,38 @@
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /registrations {
+      allow read, write: if false;
+    }
+    match /registrations/{email} {
+      allow create: if true;
+      allow read, update, delete: if false;
+    }
+
+    // True if the access token is not older than 4 hours
+    function tokenStillValid() {
+      return request.time.toMillis() < (resource.data.createdTimestamp + duration.value(4, 'h').seconds()) * 1000 || request.time.toMillis() < (resource.data.updatedTimestamp + duration.value(4, 'h').seconds()) * 1000;
+    }
+
+    match /access_tokens {
+      allow read, write: if false;
+    }
+    match /access_tokens/{token} {
+      allow read, update: if tokenStillValid();
+      allow create, delete: if false;
+    }
+
+    match /participants {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /participants/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
