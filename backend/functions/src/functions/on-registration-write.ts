@@ -73,7 +73,7 @@ async function sendMail(email: string, url: string, token: string) {
                             'Name': email
                         }
                     ],
-                    'TemplateID': environment.mailjet.templates.signin,
+                    'TemplateID': +environment.mailjet.templates.signin,
                     'TemplateLanguage': true,
                     'Variables': {
                         'url': `${url}?token=${token}`
