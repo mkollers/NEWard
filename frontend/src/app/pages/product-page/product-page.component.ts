@@ -44,7 +44,12 @@ export class ProductPageComponent extends BasePageComponent {
 
   signin = () => {
     const dialog = this.injector.get(MatDialog);
-    dialog.open(SigninDialogComponent);
+    dialog.open(SigninDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
   }
 
   private _createViewQuery = () => {
