@@ -21,12 +21,22 @@ service cloud.firestore {
       allow create, delete: if false;
     }
 
-    match /participants {
+    match /companies {
       allow read: if true;
       allow write: if false;
     }
 
-    match /participants/{id} {
+    match /companies/{id} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /products {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /products/{id} {
       allow read: if true;
       allow write: if false;
     }
