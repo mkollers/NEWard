@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { environment } from '@environments/environment';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { map } from 'rxjs/operators';
+
+import { Token } from '../models/token';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,29 @@ import { environment } from '@environments/environment';
 export class AuthService {
 
   constructor(
-    private _auth: AngularFireAuth
-  ) {
+    private _db: AngularFirestore
+  ) { }
+
+  async register(email: string, url = 'https://neward.bodylife-medien.com/') {
+    await this._db
+      .collection('registrations')
+      .doc(email)
+      .set({ url });
+    // Todo analytics tracking
   }
 
-  async login(email: string) {
-    console.log(window.location.href);
-    await this._auth.sendSignInLinkToEmail(email, {
-      url: window.location.href,
-      handleCodeInApp: true
-    });
+  getByToken(token: string) {
+    return this._db.doc<Token>(`access_tokens/${token}`)
+      .snapshotChanges().pipe(
+        map(snapshot => {
+          if (!snapshot.payload.exists) {
+            return undefined;
+          }
+          return {
+            key: snapshot.payload.id,
+            ...snapshot.payload.data()
+          };
+        })
+      );
   }
 }

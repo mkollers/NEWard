@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.component';
 
@@ -19,7 +20,8 @@ import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.
     MatButtonModule,
     MatDialogModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
   ]
 })
 export class AuthModule { }

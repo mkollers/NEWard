@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '@shared/auth/services/auth.service';
 
 @Component({
   selector: 'neward-signin-dialog',
@@ -11,6 +14,9 @@ export class SigninDialogComponent {
   fg: FormGroup;
 
   constructor(
+    private _authService: AuthService,
+    private _dialogRef: MatDialogRef<SigninDialogComponent>,
+    private _snackbar: MatSnackBar,
     fb: FormBuilder
   ) {
     this.fg = fb.group({
@@ -18,5 +24,15 @@ export class SigninDialogComponent {
     });
   }
 
-  submit = (email: string) => console.log(email);
+  submit = async (email: string) => {
+    try {
+      await this._authService.register(email);
+      this._snackbar.open('Wir haben Ihnen soeben eine E-Mail gesendet.', '', { duration: 5000 });
+      this._dialogRef.close();
+    } catch (err) {
+      console.error(err);
+      const message = 'Hoppla, da ist etwas schief gelaufen...';
+      this._snackbar.open(message, '', { duration: 10000 });
+    }
+  }
 }
