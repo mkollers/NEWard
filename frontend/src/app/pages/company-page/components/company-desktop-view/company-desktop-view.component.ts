@@ -10,4 +10,5 @@ import { Company } from '@shared/data-access/models/company';
 export class CompanyDesktopViewComponent {
   @Input() company: Company | undefined;
   @Output() openOverlay = new EventEmitter<string>();
+  @Output() signin = new EventEmitter<void>();
 }

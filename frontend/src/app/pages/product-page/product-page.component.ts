@@ -2,6 +2,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChangeDetectionStrategy, Component, Inject, INJECTOR, Injector } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
+import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
 import { Product } from '@shared/data-access/models/product';
 import { ProductService } from '@shared/data-access/services/product.service';
 import { BasePageComponent } from '@shared/helper/classes/base-page.component';
@@ -39,6 +40,11 @@ export class ProductPageComponent extends BasePageComponent {
       maxHeight: '90vH',
       maxWidth: '90vW'
     });
+  }
+
+  signin = () => {
+    const dialog = this.injector.get(MatDialog);
+    dialog.open(SigninDialogComponent);
   }
 
   private _createViewQuery = () => {

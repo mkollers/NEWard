@@ -1,4 +1,4 @@
-<button mat-flat-button color="primary">Jetzt abstimmen</button>
+<button mat-flat-button color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
 <h1 itemtype="http://schema.org/Name">{{ product?.name }}</h1>
 <span *ngIf="product?.releaseDate as releaseDate">
   <span>Produktlaunch:</span>&nbsp;<span

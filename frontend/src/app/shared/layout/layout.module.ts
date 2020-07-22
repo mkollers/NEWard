@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { AuthModule } from '@shared/auth/auth.module';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -25,7 +26,10 @@ import { SafePipe } from './pipes/safe.pipe';
 
     // Material
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+
+    // Custom
+    AuthModule
   ],
   providers: [
     { provide: 'WINDOW', useValue: window },
