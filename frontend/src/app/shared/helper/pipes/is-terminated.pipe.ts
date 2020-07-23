@@ -5,19 +5,20 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class IsTerminatedPipe implements PipeTransform {
 
-  transform(condition: 'started' | 'ended' | 'both'): boolean {
+  transform(condition: 'before' | 'during' | 'after'): boolean {
     const today = new Date();
     const start = new Date('2020-07-26T22:00:00.000Z');
     const end = new Date('2020-10-29T22:00:00.000Z');
 
     const started = today > start;
     const ended = today < end;
-    if (condition === 'started') {
-      return started;
-    } else if (condition === 'ended') {
+    if (condition === 'before') {
+      return !started;
+    } else if (condition === 'after') {
       return ended;
     } else {
-      return started && ended;
+      if (localStorage.getItem('debug') === 'true') return true;
+      return started && !ended;
     }
   }
 

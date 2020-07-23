@@ -28,5 +28,12 @@ export class HeaderComponent {
   @HostListener('window:scroll')
   onWindowScroll = () => this.isSmall = this._window.pageYOffset > 48
 
-  signin = () => this._dialog.open(SigninDialogComponent);
+  signin = () => {
+    this._dialog.open(SigninDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
+  }
 }

@@ -13,7 +13,7 @@ export class AuthService {
     private _db: AngularFirestore
   ) { }
 
-  async register(email: string, url = 'https://neward.bodylife-medien.com/') {
+  async register(email: string, url = 'https://neward.bodylife-medien.com/signin-callback') {
     await this._db
       .collection('registrations')
       .doc(email)

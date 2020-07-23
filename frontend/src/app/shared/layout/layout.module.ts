@@ -8,6 +8,7 @@ import { HelperModule } from '@shared/helper/helper.module';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
+import { NoShellComponent } from './components/no-shell/no-shell.component';
 import { OverlayImageDialogComponent } from './components/overlay-image-dialog/overlay-image-dialog.component';
 import { ShellComponent } from './components/shell/shell.component';
 import { SafePipe } from './pipes/safe.pipe';
@@ -18,9 +19,10 @@ import { SafePipe } from './pipes/safe.pipe';
     HeaderComponent,
     ShellComponent,
     SafePipe,
-    OverlayImageDialogComponent
+    OverlayImageDialogComponent,
+    NoShellComponent
   ],
-  exports: [SafePipe, ShellComponent],
+  exports: [SafePipe, NoShellComponent, ShellComponent],
   imports: [
     CommonModule,
     RouterModule,

@@ -30,7 +30,7 @@ export class SigninDialogComponent {
       this._snackbar.open(`
       Wir haben Ihnen soeben einen Zugangslink an „${email}" gesendet.
       Bitte überprüfen Sie auch Ihren SPAM-Ordner, falls die Email nicht innerhalb von 10 Minuten erhalten haben.
-      `);
+      `, 'Erneut senden');
       this._dialogRef.close();
     } catch (err) {
       console.error(err);
