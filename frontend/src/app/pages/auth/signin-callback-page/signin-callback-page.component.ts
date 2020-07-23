@@ -39,7 +39,7 @@ export class SigninCallbackPageComponent {
         first()
       ).toPromise();
     } catch (err) {
-      let msg = 'Es konnte kein gültiger Token gefunden werden. Bitte lassen Sie sich eine neue E-Mail zuschicken.';
+      let msg = 'Es konnte kein gültiger Token gefunden werden. Wenn Sie mehrfach den Zugriff angefordert haben, verwenden Sie bitte den Link aus der neusten E-Mail. Sollte es weiterhin zu Problemen kommen lassen Sie sich eine neue E-Mail zuschicken.';
       switch (err.code) {
         case 'permission-denied':
           msg = 'Ihr Link ist leider abgelaufen. Bitte lassen Sie sich eine neue E-Mail zuschicken.';
