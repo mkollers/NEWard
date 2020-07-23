@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Inject } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
 import { HeaderService } from '@shared/layout/services/header.service';
 import { Observable } from 'rxjs';
 
@@ -16,6 +18,7 @@ export class HeaderComponent {
   navigateBackUri$: Observable<string | any[]>;
 
   constructor(
+    private _dialog: MatDialog,
     @Inject('WINDOW') private _window: Window,
     headerService: HeaderService
   ) {
@@ -24,4 +27,13 @@ export class HeaderComponent {
 
   @HostListener('window:scroll')
   onWindowScroll = () => this.isSmall = this._window.pageYOffset > 48
+
+  signin = () => {
+    this._dialog.open(SigninDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
+  }
 }

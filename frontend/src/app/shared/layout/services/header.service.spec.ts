@@ -1,6 +1,7 @@
 import { HeaderService } from './header.service';
 
 describe('HeaderService', () => {
+
   it('should be created', () => {
     // Act
     const service = new HeaderService();

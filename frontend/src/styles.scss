@@ -4,6 +4,7 @@
 @import './app/shared/layout/layout.theme';
 @import './styles/bodylife.theme';
 @import './styles/button';
+@import './styles/dialog';
 @import './styles/common';
 @import './styles/image';
 @import './styles/video';
@@ -20,6 +21,23 @@
 
 @include angular-material-theme($bodylife-theme);
 @include custom-theme($bodylife-theme, 72.5rem);
+
+@mixin set-vars($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  --primary-500: #{mat-color($primary, 500)};
+  --primary-500-contrast: #{mat-contrast($primary, 500)};
+
+  --background: #{mat-color($background, background)};
+
+  --divider: #{mat-color($foreground, divider)};
+}
+
+:root {
+  @include set-vars($bodylife-theme);
+}
 
 html,
 body {

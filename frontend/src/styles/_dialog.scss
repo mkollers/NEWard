@@ -1,0 +1,40 @@
+$dialog-shadow: 2px 10px 15px 3px rgba(0, 0, 0, .17);
+$dialog-border-radius: 4px;
+
+.neward-overlay-pane {
+  .mat-dialog-container {
+    padding: 0;
+  }
+
+  .mat-dialog-container {
+    border-radius: $dialog-border-radius;
+    box-shadow: $dialog-shadow;
+  }
+
+  .mat-dialog-title {
+    background: var(--primary-500);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 2.25rem;
+    min-width: 250px;
+    padding: 0 24px;
+  }
+
+  .mat-dialog-title,
+  .mat-icon-button[mat-dialog-close] {
+    color: var(--primary-500-contrast);
+  }
+
+  .mat-dialog-content {
+    margin: 0;
+  }
+
+  .mat-dialog-actions {
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: var(--divider);
+    height: 56px;
+    margin-bottom: 0;
+    padding: 0 24px;
+  }
+}

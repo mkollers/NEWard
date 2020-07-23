@@ -10,4 +10,5 @@ import { Product } from '@shared/data-access/models/product';
 export class ProductMobileViewComponent {
   @Input() product: Product | undefined;
   @Output() openOverlay = new EventEmitter<string>();
+  @Output() signin = new EventEmitter<void>();
 }

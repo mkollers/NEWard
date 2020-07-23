@@ -2,3 +2,4 @@
   <mat-icon>&#xe5c4;</mat-icon>
 </a>
 <a id="logo" routerLink="/"></a>
+<button mat-flat-button [disabled]="!('during' | isTerminated)" color="primary" (click)="signin()">Jetzt abstimmen</button>
