@@ -8,9 +8,9 @@
   grid-template-areas:
     "name logo"
     "description logo";
-  grid-template-columns: 1fr auto;
-  grid-template-rows: repeat(2, auto);
-  max-height: 12.5rem;
+  grid-template-columns: 1fr 120px;
+  grid-template-rows: auto 1fr;
+  max-height: 132px;
   overflow: hidden;
   padding: 1rem 1.5rem;
   row-gap: .5rem;
@@ -38,13 +38,14 @@
 
   p {
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 3;
+    align-self: flex-start;
     display: -webkit-box;
     line-height: 1.4rem;
-    max-height: calc(5 * 1.4rem);
+    max-height: calc(3 * 1.4rem);
     overflow: hidden;
-    text-align: justify;
     text-overflow: ellipsis;
+    text-align: start;
 
     ::ng-deep b {
       font-weight: normal;
@@ -59,8 +60,10 @@
     align-self: center;
     justify-self: center;
     grid-area: logo;
-    max-height: 10rem;
-    max-width: 10rem;
+    max-height: 95px;
+    max-width: 120px;
+    height: auto;
+    width: auto;
 
     @media #{$mat-xs} {
       display: none;
