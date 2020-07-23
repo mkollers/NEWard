@@ -27,10 +27,11 @@ export class SigninDialogComponent {
   submit = async (email: string) => {
     try {
       await this._authService.register(email);
-      this._snackbar.open(`
+      const snackbarRef = this._snackbar.open(`
       Wir haben Ihnen soeben einen Zugangslink an „${email}" gesendet.
       Bitte überprüfen Sie auch Ihren SPAM-Ordner, falls die Email nicht innerhalb von 10 Minuten erhalten haben.
       `, 'Erneut senden');
+      snackbarRef.onAction().subscribe(() => this.submit(email));
       this._dialogRef.close();
     } catch (err) {
       console.error(err);
