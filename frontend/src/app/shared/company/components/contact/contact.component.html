@@ -18,8 +18,7 @@
   <ng-container *ngIf="company?.persons?.length > 0">
     <section class="person" *ngFor="let person of company.persons">
       <span class="name">
-        <span class="given-name">{{ person.givenName }}</span>&nbsp;
-        <span class="family-name">{{ person.familyName }}</span>
+        <span class="given-name">{{ person.givenName }}</span>&nbsp;<span class="family-name">{{ person.familyName }}</span>
       </span>
       <span class="job-title" *ngIf="person?.jobTitle">{{ person.jobTitle }}</span>
       <a class="telephone" *ngIf="person?.telephone" [href]="'tel:' + person.telephone">{{ person.telephone }}</a>
