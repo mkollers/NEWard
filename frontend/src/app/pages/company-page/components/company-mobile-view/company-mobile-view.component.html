@@ -1,4 +1,4 @@
-<button mat-flat-button color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
+<button mat-flat-button [disabled]="!('both' | isTerminated)" color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
 <h1 itemtype="http://schema.org/Name">{{ company?.legalName }}</h1>
 <span *ngIf="company?.foundingDate as releaseDate">
   <span>Start in der Fitnessbranche:</span>&nbsp;<span

@@ -12,7 +12,7 @@
   <p itemtype="http://schema.org/description" [innerHTML]="company?.promotion?.description | safe: 'html'"></p>
 </section>
 <section class="right column">
-  <button mat-flat-button color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
+  <button mat-flat-button [disabled]="!('both' | isTerminated)" color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
   <section neward-contact [company]="company"> </section>
   <ng-container class="documents" *ngIf="company?.documents?.length > 0">
     <h2>Dokumente</h2>

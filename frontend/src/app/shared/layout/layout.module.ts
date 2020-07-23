@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { AuthModule } from '@shared/auth/auth.module';
+import { HelperModule } from '@shared/helper/helper.module';
 
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -29,7 +30,8 @@ import { SafePipe } from './pipes/safe.pipe';
     MatIconModule,
 
     // Custom
-    AuthModule
+    AuthModule,
+    HelperModule
   ],
   providers: [
     { provide: 'WINDOW', useValue: window },
