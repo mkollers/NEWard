@@ -14,11 +14,11 @@
 <section class="right column">
   <button mat-flat-button [disabled]="!('during' | isTerminated)" color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
   <section neward-contact [company]="company"> </section>
-  <ng-container class="documents" *ngIf="company?.documents?.length > 0">
+  <section class="documents" *ngIf="company?.documents?.length > 0">
     <h2>Dokumente</h2>
     <a *ngFor="let document of company?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
       target="_blank">{{ document.name }}</a>
-  </ng-container>
+  </section>
 </section>
 <section class="slider full-width" *ngIf="company?.images?.length > 0">
   <swiper>

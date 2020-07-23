@@ -28,3 +28,12 @@ h1 {
 h2 {
   margin-bottom: -.5rem;
 }
+
+.documents {
+  display: grid;
+  gap: 8px;
+
+  h2 {
+    margin-bottom: 8px;
+  }
+}
