@@ -29,6 +29,7 @@ export class ProductDesktopViewComponent {
         return;
       }
       await this._authService.voteForProduct(token.key, product.id, points);
+      (window as any).ga('send', 'event', 'vote', 'vote_for_product', product.name);
     } catch (err) {
       console.error(err);
       // TODO

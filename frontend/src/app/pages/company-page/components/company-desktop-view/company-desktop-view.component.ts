@@ -29,6 +29,7 @@ export class CompanyDesktopViewComponent {
         return;
       }
       await this._authService.voteForCompany(token.key, company.id, points);
+      (window as any).ga('send', 'event', 'vote', 'vote_for_company', company.legalName);
     } catch (err) {
       console.error(err);
       // TODO
