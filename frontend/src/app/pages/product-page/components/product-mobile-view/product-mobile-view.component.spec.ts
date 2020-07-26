@@ -1,5 +1,5 @@
 import { AuthService } from '@shared/auth/services/auth.service';
-import { mock, instance } from 'ts-mockito';
+import { instance, mock } from 'ts-mockito';
 
 import { ProductMobileViewComponent } from './product-mobile-view.component';
 
