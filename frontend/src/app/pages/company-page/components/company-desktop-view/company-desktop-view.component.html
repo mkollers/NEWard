@@ -57,6 +57,6 @@
 </mat-menu>
 
 <ng-template #signindialog>
-  <button mat-flat-button color="primary" *ngIf="!(token$ | async | validToken)" [disabled]="!('during' | isTerminated)"
+  <button mat-flat-button color="primary" [disabled]="!('during' | isTerminated)"
     (click)="signin.emit()">Jetzt abstimmen</button>
 </ng-template>
