@@ -41,7 +41,7 @@ export class AnalyticsService {
     const dataLayer = this._window.dataLayer = this._window.dataLayer || [];
     // It's required to define this without an arrow function, to have the right scope
     // tslint:disable-next-line:only-arrow-functions
-    this._window.gtag = function () {
+    this._window.gtag = function() {
       dataLayer.push(arguments);
     };
     this.gtag('js', new Date());
