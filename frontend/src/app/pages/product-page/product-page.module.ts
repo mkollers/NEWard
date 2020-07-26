@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AuthModule } from '@shared/auth/auth.module';
 import { CompanyModule } from '@shared/company/company.module';
 import { HelperModule } from '@shared/helper/helper.module';
 import { LayoutModule } from '@shared/layout/layout.module';
@@ -32,6 +33,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     MatDialogModule,
 
     // Custom
+    AuthModule,
     CompanyModule,
     HelperModule,
     LayoutModule,

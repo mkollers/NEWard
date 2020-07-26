@@ -24,13 +24,14 @@ export class SigninCallbackPageComponent {
 
   private async _handleAccessToken() {
     const token = this._parseToken(this._route.snapshot.queryParamMap);
+    const url = localStorage.getItem('redirect-uri') || '/';
 
     if (!token) {
       this._snackbar.open('Es konnte kein gültiger Token gefunden werden. Bitte lassen Sie sich eine neue E-Mail zuschicken.', '',
         { duration: 20000 }
       );
       // (window as any).ga('send', 'event', 'no_token_found');
-      this._router.navigate(['/']);
+      this._router.navigateByUrl(url);
     }
 
     let data: Token | undefined;
@@ -50,7 +51,7 @@ export class SigninCallbackPageComponent {
           break;
       }
       this._snackbar.open(msg, '', { duration: 20000 });
-      this._router.navigate(['/']);
+      this._router.navigateByUrl(url);
     }
 
     if (!data) {
@@ -58,10 +59,11 @@ export class SigninCallbackPageComponent {
         duration: 20000
       });
       // (window as any).ga('send', 'event', 'no_token_found');
-      this._router.navigate(['/']);
+      this._router.navigateByUrl(url);
     }
 
-    this._router.navigate(['/']);
+    this._authService.token$ = this._authService.getByToken(token as string);
+    this._router.navigateByUrl(url);
   }
 
   private _parseToken(params: ParamMap): string | null {

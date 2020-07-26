@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Token } from '../models/token';
@@ -8,12 +9,16 @@ import { Token } from '../models/token';
   providedIn: 'root'
 })
 export class AuthService {
+  token$: Observable<Token | undefined>;
 
   constructor(
     private _db: AngularFirestore
-  ) { }
+  ) {
+    this.token$ = this._createToken$();
+  }
 
-  async register(email: string, url = 'https://neward.bodylife-medien.com/signin-callback') {
+  async register(email: string, url = `${window.location.origin}/signin-callback`) {
+    localStorage.setItem('redirect-uri', window.location.pathname);
     await this._db
       .collection('registrations')
       .doc(email)
@@ -31,8 +36,16 @@ export class AuthService {
           return {
             key: snapshot.payload.id,
             ...snapshot.payload.data()
-          };
+          } as Token;
         })
       );
+  }
+
+  private _createToken$() {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return this.getByToken(token);
+    }
+    return of(undefined);
   }
 }

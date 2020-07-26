@@ -8,10 +8,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.component';
+import { ValidTokenPipe } from './pipes/valid-token.pipe';
 
 @NgModule({
-  declarations: [SigninDialogComponent],
-  exports: [SigninDialogComponent],
+  declarations: [SigninDialogComponent, ValidTokenPipe],
+  exports: [SigninDialogComponent, ValidTokenPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
