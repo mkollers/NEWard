@@ -12,7 +12,7 @@
   <p itemtype="http://schema.org/description" [innerHTML]="company?.promotion?.description | safe: 'html'"></p>
 </section>
 <section class="right column">
-  <ng-container *ngIf="token$ | async as token">
+  <ng-container *ngIf="token$ | async as token; else signindialog">
     <button mat-flat-button color="primary" *ngIf="token | validToken; else signindialog"
       [disabled]="!('during' | isTerminated)" [matMenuTriggerFor]="voteMenu">
       {{ token?.company_votes[company?.id] || 0 }}

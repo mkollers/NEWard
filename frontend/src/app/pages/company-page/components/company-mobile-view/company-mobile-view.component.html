@@ -1,4 +1,4 @@
-<ng-container *ngIf="token$ | async as token">
+<ng-container *ngIf="token$ | async as token; else signindialog">
   <button mat-flat-button color="primary" *ngIf="token | validToken; else signindialog"
     [disabled]="!('during' | isTerminated)" [matMenuTriggerFor]="voteMenu">
     {{ token?.company_votes[company?.id] || 0 }}
