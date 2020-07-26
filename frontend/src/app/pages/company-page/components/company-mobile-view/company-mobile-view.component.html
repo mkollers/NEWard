@@ -1,4 +1,11 @@
-<button mat-flat-button [disabled]="!('during' | isTerminated)" color="primary" (click)="signin.emit()">Jetzt abstimmen</button>
+<ng-container *ngIf="token$ | async as token">
+  <button mat-flat-button color="primary" *ngIf="token | validToken; else signindialog"
+    [disabled]="!('during' | isTerminated)" [matMenuTriggerFor]="voteMenu">
+    {{ token?.company_votes[company?.id] || 0 }}
+    <ng-container *ngIf="token?.company_votes[company?.id] === 1; else multiple">Punkt</ng-container>
+    <ng-template #multiple>Punkte</ng-template>
+  </button>
+</ng-container>
 <h1 itemtype="http://schema.org/Name">{{ company?.legalName }}</h1>
 <span *ngIf="company?.foundingDate as releaseDate">
   <span>Start in der Fitnessbranche:</span>&nbsp;<span
@@ -30,3 +37,22 @@
     target="_blank">{{ document.name }}</a>
 </ng-container>
 <section neward-contact [company]="company"> </section>
+
+<mat-menu #voteMenu="matMenu" class="neward-menu vote-menu" xPosition="before">
+  <button mat-menu-item (click)="vote(company, 0)">0 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 1)">1 Punkt</button>
+  <button mat-menu-item (click)="vote(company, 2)">2 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 3)">3 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 4)">4 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 5)">5 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 6)">6 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 7)">7 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 8)">8 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 9)">9 Punkte</button>
+  <button mat-menu-item (click)="vote(company, 10)">10 Punkte</button>
+</mat-menu>
+
+<ng-template #signindialog>
+  <button mat-flat-button color="primary" *ngIf="!(token$ | async | validToken)" [disabled]="!('during' | isTerminated)"
+    (click)="signin.emit()">Jetzt abstimmen</button>
+</ng-template>
