@@ -7,7 +7,7 @@ import {
   createAngularFirestoreCollection,
   createAngularFirestoreSingleCollection,
   createDocumentChangeAction
-} from 'src/firebase-test-helper';
+} from 'src/test-helper';
 import { instance, mock, when } from 'ts-mockito';
 
 import { Product } from '../models/product';

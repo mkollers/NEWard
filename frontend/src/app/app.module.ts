@@ -7,6 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@environments/environment';
+import { WINDOW } from '@shared/helper/injection-tokens/window.injection-token';
 import { LayoutModule } from '@shared/layout/layout.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,8 @@ registerLocaleData(localeDe, 'de');
     LayoutModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'de-DE' }
+    { provide: LOCALE_ID, useValue: 'de-DE' },
+    { provide: WINDOW, useValue: window }
   ],
   bootstrap: [AppComponent]
 })

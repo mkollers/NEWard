@@ -10,6 +10,18 @@ import {
 import { from, of } from 'rxjs';
 import { instance, mock, when } from 'ts-mockito';
 
+export interface Mock<T> {
+    mock: T;
+    instance: T;
+}
+
+export function CreateMock<T>() {
+    const m = mock<T>();
+    return {
+        mock: m, instance: instance(m)
+    };
+}
+
 export const createAction = <T>(id: string, data: T) => {
     const actionMock = mock<Action<DocumentSnapshot<T>>>();
     const documentSnapshot = createDocumentSnapshot(id, data);
