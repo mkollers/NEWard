@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductMobileViewComponent {
-  @Input() product: Product | undefined;
+  @Input() product: Product;
   @Output() openOverlay = new EventEmitter<string>();
   @Output() signin = new EventEmitter<void>();
   token$: Observable<Token | undefined>;

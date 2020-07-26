@@ -12,7 +12,7 @@ import { first } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CompanyDesktopViewComponent {
-  @Input() company: Company | undefined;
+  @Input() company: Company;
   @Output() openOverlay = new EventEmitter<string>();
   @Output() signin = new EventEmitter<void>();
   token$: Observable<Token | undefined>;
