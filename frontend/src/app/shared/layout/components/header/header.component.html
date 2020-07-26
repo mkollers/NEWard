@@ -2,4 +2,12 @@
   <mat-icon>&#xe5c4;</mat-icon>
 </a>
 <a id="logo" routerLink="/"></a>
-<button mat-flat-button [disabled]="!('during' | isTerminated)" color="primary" (click)="signin()">Jetzt abstimmen</button>
+<section class="user" *ngIf="token$ | async as token; else signInTemplate">
+  <span [style.background-color]="token.email | nameColor" class="avatar">{{ token.email | initials }}</span>
+  <span class="name">{{ token.email }}</span>
+</section>
+
+<ng-template #signInTemplate>
+  <button mat-flat-button [disabled]="!('during' | isTerminated)" color="primary"
+  (click)="signin()">Jetzt abstimmen</button>
+</ng-template>

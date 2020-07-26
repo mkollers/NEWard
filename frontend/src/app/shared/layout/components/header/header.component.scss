@@ -72,3 +72,39 @@
 button {
   grid-area: cta;
 }
+
+.user {
+  align-items: center;
+  display: grid;
+  font-size: .875rem;
+  font-weight: normal;
+  gap: 8px;
+  grid-area: cta;
+  grid-template-columns: auto 1fr;
+  height: 100%;
+  line-height: normal;
+  max-width: 100%;
+  min-width: 200px;
+  text-align: start;
+  text-transform: none;
+}
+
+.avatar {
+  border-radius: 4px;
+  color: var(--primary-500-contrast);
+  display: inline-block;
+  font-size: .875rem;
+  height: 28px;
+  line-height: 28px;
+  opacity: .8;
+  opacity: 1;
+  text-align: center;
+  vertical-align: middle;
+  width: 28px;
+}
+
+.user-info {
+  align-items: center;
+  display: grid;
+  font-size: 0.75rem;
+}

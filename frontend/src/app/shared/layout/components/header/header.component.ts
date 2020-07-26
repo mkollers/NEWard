@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, HostBinding, HostListener, Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
+import { Token } from '@shared/auth/models/token';
+import { AuthService } from '@shared/auth/services/auth.service';
 import { HeaderService } from '@shared/layout/services/header.service';
 import { Observable } from 'rxjs';
 
@@ -16,12 +18,15 @@ import { Observable } from 'rxjs';
 export class HeaderComponent {
   @HostBinding('class.small') isSmall = false;
   navigateBackUri$: Observable<string | any[]>;
+  token$: Observable<Token | undefined>;
 
   constructor(
     private _dialog: MatDialog,
     @Inject('WINDOW') private _window: Window,
+    authService: AuthService,
     headerService: HeaderService
   ) {
+    this.token$ = authService.token$;
     this.navigateBackUri$ = headerService.navigateBackUri$;
   }
 
