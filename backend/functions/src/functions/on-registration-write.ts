@@ -1,6 +1,7 @@
 import * as admin from 'firebase-admin';
 import * as functions from 'firebase-functions';
 import { connect } from 'node-mailjet';
+
 import { environment } from '../config/environment';
 
 export const OnRegistrationWrite = functions
@@ -12,7 +13,7 @@ export const OnRegistrationWrite = functions
             const email: string = context.params.email;
             const data = event.after.data();
             if (!data) {
-                console.warn(`Registration for ${email} does not exist. Skipping function execution`);
+                console.warn(`Empty data for ${email}. Skipping function execution`);
                 return;
             }
             const url = data.url;
