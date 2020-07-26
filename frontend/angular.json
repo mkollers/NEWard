@@ -25,20 +25,29 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [{
-              "glob": "*",
-              "input": "src/assets/root",
-              "output": "/"
-            }, {
-              "glob": "**",
-              "input": "src/assets",
-              "output": "/assets/",
-              "ignore": ["root/**"]
-            },
-              "src/manifest.webmanifest"],
+                "glob": "*",
+                "input": "src/assets/root",
+                "output": "/"
+              }, {
+                "glob": "**",
+                "input": "src/assets",
+                "output": "/assets/",
+                "ignore": ["root/**"]
+              },
+              "src/manifest.webmanifest"
+            ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "lodash",
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/firestore",
+              "@firebase/component",
+              "@firebase/util"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,16 +104,17 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [{
-              "glob": "*",
-              "input": "src/assets/root",
-              "output": "/"
-            }, {
-              "glob": "**",
-              "input": "src/assets",
-              "output": "/assets/",
-              "ignore": ["root/**"]
-            },
-              "src/manifest.webmanifest"],
+                "glob": "*",
+                "input": "src/assets/root",
+                "output": "/"
+              }, {
+                "glob": "**",
+                "input": "src/assets",
+                "output": "/assets/",
+                "ignore": ["root/**"]
+              },
+              "src/manifest.webmanifest"
+            ],
             "styles": [
               "src/styles.scss"
             ],

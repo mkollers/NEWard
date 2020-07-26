@@ -1,6 +1,8 @@
-import { Inject, INJECTOR, Injector, OnDestroy } from '@angular/core';
+import { Directive, Inject, INJECTOR, Injector, OnDestroy } from '@angular/core';
 import { HeaderService } from '@shared/layout/services/header.service';
 
+@Directive()
+// tslint:disable-next-line: directive-class-suffix
 export class BasePageComponent implements OnDestroy {
     protected headerService: HeaderService;
 

@@ -16,11 +16,11 @@ export class ProductService {
   ) { }
 
   static fromAction(action: Action<DocumentSnapshot<Product>>): Product {
-    return { id: action.payload.id, ...action.payload.data() as Product };
+    return { ...action.payload.data() as Product, id: action.payload.id };
   }
 
   static fromDocumentChangeAction(action: DocumentChangeAction<Product>): Product {
-    return { id: action.payload.doc.id, ...action.payload.doc.data() };
+    return { ...action.payload.doc.data(), id: action.payload.doc.id };
   }
 
   getAll(): Observable<Product[]> {

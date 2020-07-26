@@ -16,11 +16,11 @@ export class CompanyService {
   ) { }
 
   static fromAction(action: Action<DocumentSnapshot<Company>>): Company {
-    return { id: action.payload.id, ...action.payload.data() as Company };
+    return { ...action.payload.data() as Company, id: action.payload.id };
   }
 
   static fromDocumentChangeAction(action: DocumentChangeAction<Company>): Company {
-    return { id: action.payload.doc.id, ...action.payload.doc.data() };
+    return { ...action.payload.doc.data(), id: action.payload.doc.id };
   }
 
   getAll(): Observable<Company[]> {

@@ -34,8 +34,8 @@ export class AuthService {
             return undefined;
           }
           return {
-            key: snapshot.payload.id,
-            ...snapshot.payload.data()
+            ...snapshot.payload.data(),
+            key: snapshot.payload.id
           } as Token;
         })
       );
