@@ -1,7 +1,8 @@
 export interface Token {
-    key?: string;
+    key: string;
     created: string;
     updated?: string;
     email: string;
-    vote: string;
+    company_votes: { [company: string]: number };
+    product_votes: { [product: string]: number };
 }

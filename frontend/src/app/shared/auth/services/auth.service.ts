@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 
 import { Token } from '../models/token';
 
@@ -39,6 +39,34 @@ export class AuthService {
           } as Token;
         })
       );
+  }
+
+  async voteForCompany(token: string, company: string, points: number) {
+    const company_votes = await this.getByToken(token).pipe(
+      first(),
+      map((data: Token) => data.company_votes || {})
+    ).toPromise();
+
+    company_votes[company] = points;
+
+    return this._db
+      .collection('access_tokens')
+      .doc(token)
+      .update({ company_votes });
+  }
+
+  async voteForProduct(token: string, product: string, points: number) {
+    const product_votes = await this.getByToken(token).pipe(
+      first(),
+      map((data: Token) => data.product_votes || {})
+    ).toPromise();
+
+    product_votes[product] = points;
+
+    return this._db
+      .collection('access_tokens')
+      .doc(token)
+      .update({ product_votes });
   }
 
   private _createToken$() {

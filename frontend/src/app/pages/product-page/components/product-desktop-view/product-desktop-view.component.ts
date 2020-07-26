@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Token } from '@shared/auth/models/token';
 import { AuthService } from '@shared/auth/services/auth.service';
 import { Product } from '@shared/data-access/models/product';
 import { Observable } from 'rxjs';
-import { Token } from '@shared/auth/models/token';
-import { auth } from 'firebase';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'neward-product-desktop-view, [neward-product-desktop-view]',
@@ -17,7 +17,21 @@ export class ProductDesktopViewComponent {
   @Output() signin = new EventEmitter<void>();
   token$: Observable<Token | undefined>;
 
-  constructor(authService: AuthService) {
-    this.token$ = authService.token$;
+  constructor(private _authService: AuthService) {
+    this.token$ = _authService.token$;
+  }
+
+  async vote(product: Product, points: number) {
+    try {
+      const token = await this.token$.pipe(first()).toPromise();
+      if (!token) {
+        console.error('This should not happen! Token not found');
+        return;
+      }
+      await this._authService.voteForProduct(token.key, product.id, points);
+    } catch (err) {
+      console.error(err);
+      // TODO
+    }
   }
 }

@@ -4,9 +4,10 @@
 @import './app/shared/layout/layout.theme';
 @import './styles/bodylife.theme';
 @import './styles/button';
-@import './styles/dialog';
 @import './styles/common';
+@import './styles/dialog';
 @import './styles/image';
+@import './styles/menu';
 @import './styles/video';
 
 @mixin custom-theme($theme, $maxWidth) {

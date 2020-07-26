@@ -1,0 +1,34 @@
+.neward-menu {
+  &.mat-menu-panel {
+    border-radius: 2px;
+    min-height: 38px;
+  }
+
+  .mat-menu-content:not(:empty) {
+    padding: 0;
+  }
+
+  .mat-menu-item {
+    font-size: .8125rem;
+    height: 38px;
+    line-height: 1.25rem;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--navigation);
+    }
+
+    &.active {
+      border-left: 4px solid var(--primary-500);
+      color: var(--primary-500);
+      padding-left: 12px; // less padding because of 4px border on the left
+    }
+
+    &.active,
+    &:hover {
+      font-weight: 500;
+      transition-duration: 400ms;
+      transition-property: border-left-color;
+      transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+  }
+}
