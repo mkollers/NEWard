@@ -9,6 +9,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '@environments/environment';
 import { WINDOW } from '@shared/helper/injection-tokens/window.injection-token';
 import { LayoutModule } from '@shared/layout/layout.module';
+import { TracingModule } from '@shared/tracing/tracing.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +31,8 @@ registerLocaleData(localeDe, 'de');
     AngularFirestoreModule,
 
     // Custom
-    LayoutModule
+    LayoutModule,
+    TracingModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'de-DE' },

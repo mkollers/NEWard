@@ -38,15 +38,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "lodash",
-              "firebase/app",
-              "@firebase/app",
-              "@firebase/firestore",
-              "@firebase/component",
-              "@firebase/util"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
