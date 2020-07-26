@@ -33,8 +33,7 @@
                 "input": "src/assets",
                 "output": "/assets/",
                 "ignore": ["root/**"]
-              },
-              "src/manifest.webmanifest"
+              }
             ],
             "styles": [
               "src/styles.scss"
@@ -112,8 +111,7 @@
                 "input": "src/assets",
                 "output": "/assets/",
                 "ignore": ["root/**"]
-              },
-              "src/manifest.webmanifest"
+              }
             ],
             "styles": [
               "src/styles.scss"
