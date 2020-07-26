@@ -19,11 +19,13 @@ export const OnAccessTokenWrite = functions
                 return;
             }
 
-            const votesBefore = [..._.toArray(before.company_votes), ..._.toArray(before.product_votes)];
+            const votesBefore = []; [..._.toArray(before?.company_votes), ..._.toArray(before?.product_votes)];
             const votesAfter = [..._.toArray(after.company_votes), ..._.toArray(after.product_votes)];
 
             if (votesBefore.length === 0 && votesAfter.length === 1) {
                 await sendMail(before.email)
+            } else {
+                console.log(`Skip execution because it is not the first vote. Before: ${votesBefore.length} - After: ${votesAfter.length}`);
             }
         } catch (err) {
             console.error(err)
