@@ -4,6 +4,7 @@
     {{ token?.product_votes[product?.id] || 0 }}
     <ng-container *ngIf="token?.product_votes[product?.id] === 1; else multiple">Punkt</ng-container>
     <ng-template #multiple>Punkte</ng-template>
+    <mat-icon>&#xe5c5;</mat-icon>
   </button>
 </ng-container>
 <h1 itemtype="http://schema.org/Name">{{ product?.name }}</h1>

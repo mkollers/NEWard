@@ -13,11 +13,12 @@
 </section>
 <section class="right column">
   <ng-container *ngIf="token$ | async as token; else signindialog">
-    <button mat-flat-button color="primary" *ngIf="token | validToken; else signindialog"
+    <button class="vote-button" mat-flat-button color="primary" *ngIf="token | validToken; else signindialog"
       [disabled]="!('during' | isTerminated)" [matMenuTriggerFor]="voteMenu">
       {{ token?.company_votes[company?.id] || 0 }}
       <ng-container *ngIf="token?.company_votes[company?.id] === 1; else multiple">Punkt</ng-container>
       <ng-template #multiple>Punkte</ng-template>
+      <mat-icon>&#xe5c5;</mat-icon>
     </button>
   </ng-container>
   <section neward-contact [company]="company"> </section>
