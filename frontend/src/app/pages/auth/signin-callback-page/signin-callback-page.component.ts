@@ -1,10 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, Injector } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Token } from '@shared/auth/models/token';
 import { AuthService } from '@shared/auth/services/auth.service';
 import { AnalyticsService } from '@shared/tracing/services/analytics.service';
 import { first } from 'rxjs/operators';
+
+import {
+  SigninDescriptionDialogComponent
+} from './components/signin-description-dialog/signin-description-dialog.component';
 
 @Component({
   selector: 'neward-signin-callback-page',
@@ -75,6 +80,15 @@ export class SigninCallbackPageComponent {
       router.navigateByUrl(url);
     }
 
+    if (url === '/') {
+      const dialog = this._injector.get(MatDialog);
+      dialog.open(SigninDescriptionDialogComponent, {
+        disableClose: true,
+        maxWidth: 'calc(100% - 32px)',
+        panelClass: 'neward-overlay-pane',
+        width: '450px'
+      });
+    }
     authService.token$ = authService.getByToken(token as string);
     router.navigateByUrl(url);
   }
