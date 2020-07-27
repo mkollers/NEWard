@@ -11,7 +11,7 @@ export class IsTerminatedPipe implements PipeTransform {
     const end = new Date('2020-10-26T22:00:00.000Z');
 
     const started = today > start;
-    const ended = today < end;
+    const ended = today > end;
     if (condition === 'before') {
       return !started;
     } else if (condition === 'after') {
