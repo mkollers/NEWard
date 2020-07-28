@@ -1,3 +1,5 @@
+@import '../../../../../styles/breakpoints';
+
 :host {
   display: block;
   position: relative;
@@ -40,4 +42,18 @@ p {
 .small {
   font-size: .875rem;
   font-style: italic;
+}
+
+@media #{$mat-xs} {
+  .mat-dialog-actions {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 16px;
+  }
+
+  button {
+    margin-left: 0!important;
+    width: 100%;
+  }
 }
