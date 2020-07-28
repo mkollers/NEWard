@@ -6,13 +6,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { RouterModule } from '@angular/router';
 
 import { FirstVoteDialogComponent } from './components/first-vote-dialog/first-vote-dialog.component';
 import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.component';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { NameColorPipe } from './pipes/name-color.pipe';
 import { ValidTokenPipe } from './pipes/valid-token.pipe';
-import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
