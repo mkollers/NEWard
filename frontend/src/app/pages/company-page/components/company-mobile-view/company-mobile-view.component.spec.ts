@@ -1,20 +1,21 @@
+import { Injector } from '@angular/core';
 import { AuthService } from '@shared/auth/services/auth.service';
-import { instance, mock } from 'ts-mockito';
+import { Mock } from 'src/test-helper';
 
 import { CompanyMobileViewComponent } from './company-mobile-view.component';
 
 describe('CompanyMobileViewComponent', () => {
-  let authServiceMock: AuthService;
-  let authService: AuthService;
+  let authService: Mock<AuthService>;
+  let injector: Mock<Injector>;
 
   beforeEach(() => {
-    authServiceMock = mock<AuthService>();
-    authService = instance(authServiceMock);
+    authService = new Mock<AuthService>();
+    injector = new Mock<Injector>();
   });
 
   it('should create', () => {
     // Act
-    const component = new CompanyMobileViewComponent(authService);
+    const component = new CompanyMobileViewComponent(authService.instance, injector.instance);
 
     // Assert
     expect(component).toBeTruthy();

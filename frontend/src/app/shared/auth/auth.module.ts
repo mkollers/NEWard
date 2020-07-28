@@ -7,19 +7,23 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { FirstVoteDialogComponent } from './components/first-vote-dialog/first-vote-dialog.component';
 import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.component';
 import { InitialsPipe } from './pipes/initials.pipe';
 import { NameColorPipe } from './pipes/name-color.pipe';
 import { ValidTokenPipe } from './pipes/valid-token.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
+    FirstVoteDialogComponent,
     InitialsPipe,
     NameColorPipe,
     SigninDialogComponent,
     ValidTokenPipe
   ],
   exports: [
+    FirstVoteDialogComponent,
     InitialsPipe,
     NameColorPipe,
     SigninDialogComponent,
@@ -28,6 +32,7 @@ import { ValidTokenPipe } from './pipes/valid-token.pipe';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
 
     // Material
     MatButtonModule,

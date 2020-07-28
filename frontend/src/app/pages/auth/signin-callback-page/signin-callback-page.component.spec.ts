@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '@shared/auth/services/auth.service';
-import { CreateMock, Mock } from 'src/test-helper';
+import { Mock } from 'src/test-helper';
 import { when } from 'ts-mockito';
 
 import { SigninCallbackPageComponent } from './signin-callback-page.component';
@@ -18,12 +18,12 @@ describe('SigninCallbackPageComponent', () => {
   let snackbar: Mock<MatSnackBar>;
 
   beforeEach(async(() => {
-    injector = CreateMock<Injector>();
-    authService = CreateMock<AuthService>();
-    dialog = CreateMock<MatDialog>();
-    route = CreateMock<ActivatedRoute>();
-    router = CreateMock<Router>();
-    snackbar = CreateMock<MatSnackBar>();
+    injector = new Mock<Injector>();
+    authService = new Mock<AuthService>();
+    dialog = new Mock<MatDialog>();
+    route = new Mock<ActivatedRoute>();
+    router = new Mock<Router>();
+    snackbar = new Mock<MatSnackBar>();
 
     when(injector.mock.get(AuthService)).thenReturn(authService.instance);
     when(injector.mock.get(MatDialog)).thenReturn(dialog.instance);

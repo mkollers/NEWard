@@ -1,6 +1,6 @@
 import { NavigationEnd, Router } from '@angular/router';
 import { EMPTY, Subject } from 'rxjs';
-import { CreateMock, Mock } from 'src/test-helper';
+import { Mock } from 'src/test-helper';
 import { instance, mock, when } from 'ts-mockito';
 
 import { AnalyticsService, GstWindow } from './analytics.service';
@@ -10,8 +10,8 @@ describe('AnalyticsService', () => {
   let window: Mock<GstWindow>;
 
   beforeEach(() => {
-    router = CreateMock<Router>();
-    window = CreateMock<GstWindow>();
+    router = new Mock<Router>();
+    window = new Mock<GstWindow>();
   });
 
   it('should be created', () => {

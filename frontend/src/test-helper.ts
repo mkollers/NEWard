@@ -10,16 +10,14 @@ import {
 import { from, of } from 'rxjs';
 import { instance, mock, when } from 'ts-mockito';
 
-export interface Mock<T> {
+export class Mock<T> {
     mock: T;
     instance: T;
-}
 
-export function CreateMock<T>() {
-    const m = mock<T>();
-    return {
-        mock: m, instance: instance(m)
-    };
+    constructor() {
+        this.mock = mock<T>();
+        this.instance = instance(this.mock);
+    }
 }
 
 export const createAction = <T>(id: string, data: T) => {
