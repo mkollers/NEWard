@@ -16,10 +16,10 @@
   z-index: 20;
 
   @media #{$mat-xs} {
-    grid-template-columns: 2.5rem 1fr;
+    grid-template-columns: 2.5rem 1fr 2.5rem;
     grid-template-rows: auto;
     grid-template-areas:
-      "action logo";
+      "action logo cta";
 
     .mat-flat-button {
       align-self: baseline;
@@ -101,6 +101,12 @@ button {
   text-align: center;
   vertical-align: middle;
   width: 28px;
+}
+
+@media #{$mat-xs} {
+  .name {
+    display: none;
+  }
 }
 
 .user-info {
