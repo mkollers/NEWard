@@ -27,5 +27,5 @@
   bis 10 abstimmen. Danach können Sie sich weitere Einträge anschauen und direkt abstimmen – ohne weitere Anforderung.
   Der Link zur Abstimmung ist 4 Stunden gültig.
 </section>
-<section id="aufsteiger-des-jahres" @list neward-company-listing [companies]="companies$ | async"></section>
-<section id="produktneuheiten-des-jahres" @list neward-product-listing [products]="products$ | async"></section>
+<section id="aufsteiger-des-jahres" @list [token]="token$ | async" neward-company-listing [companies]="companies$ | async"></section>
+<section id="produktneuheiten-des-jahres" @list [token]="token$ | async" neward-product-listing [products]="products$ | async"></section>

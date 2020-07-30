@@ -1,5 +1,6 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Token } from '@shared/auth/models/token';
 import { Company } from '@shared/data-access/models/company';
 
 @Component({
@@ -21,4 +22,5 @@ import { Company } from '@shared/data-access/models/company';
 })
 export class CompanyListingComponent {
   @Input() companies: Company[];
+  @Input() token: Token;
 }

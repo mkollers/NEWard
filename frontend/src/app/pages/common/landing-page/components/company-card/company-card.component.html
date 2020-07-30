@@ -1,3 +1,6 @@
 <h3>{{ company.legalName }}</h3>
 <p [innerHTML]="company.promotion?.description | safe: 'html'"></p>
 <img width="120" [alt]="'Unternehmenslogo von ' + company.legalName" [src]="company.logo">
+<span class="badge" *ngIf="token?.company_votes && token.company_votes[company.id]">
+  {{ token.company_votes[company.id] }} Punkte
+</span>

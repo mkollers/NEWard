@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Token } from '@shared/auth/models/token';
 import { Product } from '@shared/data-access/models/product';
 
 @Component({
@@ -12,4 +13,5 @@ import { Product } from '@shared/data-access/models/product';
 })
 export class ProductCardComponent {
   @Input() product: Product;
+  @Input() token: Token;
 }

@@ -1,4 +1,4 @@
 <h2>Aufsteiger des Jahres</h2>
-<a [routerLink]="['/aufsteiger-des-jahres', company.id]" neward-company-card *ngFor="let company of companies"
+<a [routerLink]="['/aufsteiger-des-jahres', company.id]" [token]="token" neward-company-card *ngFor="let company of companies"
   [company]="company">
 </a>

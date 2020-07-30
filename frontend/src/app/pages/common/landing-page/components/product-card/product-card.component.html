@@ -3,3 +3,6 @@
 <img width="120" *ngIf="product.logo" [alt]="'Produktlogo von ' + product.name" [src]="product.logo">
 <img width="120" *ngIf="!product.logo && product.manufacturer?.logo"
   [alt]="'Unternehmenslogo von ' + product.manufacturer.legalName" [src]="product.manufacturer.logo">
+<span class="badge" *ngIf="token?.product_votes && token.product_votes[product.id]">
+  {{ token.product_votes[product.id] }} Punkte
+</span>

@@ -11,8 +11,9 @@
   grid-template-columns: 1fr 120px;
   grid-template-rows: auto 1fr;
   max-height: 132px;
-  overflow: hidden;
+  overflow: visible;
   padding: 1rem 1.5rem;
+  position: relative;
   row-gap: .5rem;
   text-decoration: none !important;
   transition: all ease-in-out 250ms;
@@ -82,4 +83,14 @@
       display: none;
     }
   }
+}
+
+.badge {
+  background-color: var(--primary-500);
+  border-radius: 1000px;
+  color: var(--primary-500-contrast);
+  padding: 2px 16px;
+  position: absolute;
+  right: -10px;
+  top: -10px;
 }
