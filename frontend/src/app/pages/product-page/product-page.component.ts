@@ -25,7 +25,8 @@ export class ProductPageComponent extends BasePageComponent {
 
   constructor(@Inject(INJECTOR) private _injector: Injector) {
     super(_injector);
-    super.navigateBackUri = '/';
+    this.navigateBackUri = '/';
+    this.fragment = 'produktneuheiten-des-jahres';
 
     this.product$ = this._createProductQuery();
     this.view$ = this._createViewQuery();

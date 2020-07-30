@@ -25,7 +25,8 @@ export class CompanyPageComponent extends BasePageComponent {
 
   constructor(@Inject(INJECTOR) private _injector: Injector) {
     super(_injector);
-    super.navigateBackUri = '/';
+    this.navigateBackUri = '/';
+    this.fragment = 'aufsteiger-des-jahres';
 
     this.company$ = this._createCompanyQuery();
     this.view$ = this._createViewQuery();

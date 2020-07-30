@@ -14,7 +14,12 @@ export class BasePageComponent implements OnDestroy {
         this.headerService.navigateBackUri = value;
     }
 
+    set fragment(value: string) {
+        this.headerService.fragment = value;
+    }
+
     ngOnDestroy() {
         this.navigateBackUri = '';
+        this.fragment = '';
     }
 }

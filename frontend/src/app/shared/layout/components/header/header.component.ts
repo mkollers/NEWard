@@ -18,6 +18,7 @@ import { Observable } from 'rxjs';
 export class HeaderComponent {
   @HostBinding('class.small') isSmall = false;
   navigateBackUri$: Observable<string | any[]>;
+  fragment$: Observable<string>;
   token$: Observable<Token | undefined>;
 
   constructor(
@@ -28,6 +29,7 @@ export class HeaderComponent {
   ) {
     this.token$ = authService.token$;
     this.navigateBackUri$ = headerService.navigateBackUri$;
+    this.fragment$ = headerService.fragment$;
   }
 
   @HostListener('window:scroll')
