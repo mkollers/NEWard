@@ -12,6 +12,7 @@ import { AuthService } from '@shared/auth/services/auth.service';
 })
 export class SigninDialogComponent {
   fg: FormGroup;
+  submitting = false;
 
   constructor(
     private _authService: AuthService,
@@ -25,6 +26,8 @@ export class SigninDialogComponent {
   }
 
   submit = async (email: string) => {
+    if (this.submitting) return;
+    this.submitting = true;
     try {
       await this._authService.register(email);
       const snackbarRef = this._snackbar.open(`
@@ -38,5 +41,6 @@ export class SigninDialogComponent {
       const message = 'Hoppla, da ist etwas schief gelaufen...';
       this._snackbar.open(message, '', { duration: 10000 });
     }
+    this.submitting = false;
   }
 }
