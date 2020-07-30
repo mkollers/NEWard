@@ -1,6 +1,7 @@
 import { ViewportScroller } from '@angular/common';
 import { Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AuthService } from '@shared/auth/services/auth.service';
 import { CompanyService } from '@shared/data-access/services/company.service';
 import { ProductService } from '@shared/data-access/services/product.service';
 import { NEVER } from 'rxjs';
@@ -9,7 +10,6 @@ import { Mock } from 'src/test-helper';
 import { when } from 'ts-mockito';
 
 import { LandingPageComponent } from './landing-page.component';
-import { AuthService } from '@shared/auth/services/auth.service';
 
 describe('LandingPageComponent', () => {
   let authService: Mock<AuthService>;
