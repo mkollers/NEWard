@@ -4,6 +4,7 @@ import { HeaderService } from '@shared/layout/services/header.service';
 @Directive()
 // tslint:disable-next-line: directive-class-suffix
 export class BasePageComponent implements OnDestroy {
+    protected alive = true;
     protected headerService: HeaderService;
 
     constructor(@Inject(INJECTOR) protected injector: Injector) {
@@ -21,5 +22,6 @@ export class BasePageComponent implements OnDestroy {
     ngOnDestroy() {
         this.navigateBackUri = '';
         this.fragment = '';
+        this.alive = false;
     }
 }
