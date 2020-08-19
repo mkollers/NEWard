@@ -31,7 +31,7 @@ async function main() {
         for (let companyId in token.company_votes) {
             const company = _.find(companies, c => c.id === companyId);
             if (!company){
-                console.warn(`Company with id ${companyId} not found!`);
+                console.warn(`Company with id ${companyId} for ${token.email} not found!`);
                 continue;
             }
             data.push({
