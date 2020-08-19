@@ -6,7 +6,8 @@
   "scripts": {
     "get-votes": "ts-node get-votes.ts",
     "company-result": "ts-node get-company-results.ts",
-    "product-result": "ts-node get-product-results.ts"
+    "product-result": "ts-node get-product-results.ts",
+    "reports": "npm run get-votes && npm run company-result && npm run product-result"
   },
   "author": "",
   "license": "ISC",
