@@ -29,6 +29,16 @@ const routes: Routes = [
     component: ShellComponent,
     loadChildren: () => import('./pages/common/privacy-page/privacy-page.module').then(m => m.PrivacyPageModule)
   },
+  {
+    path: 'admin',
+    component: ShellComponent,
+    children: [
+      {
+        path: 'signup',
+        loadChildren: () => import('./pages/admin/signup-page/signup-page.module').then(m => m.SignupPageModule)
+      }
+    ]
+  },
   { path: '**', redirectTo: '' }
 ];
 
