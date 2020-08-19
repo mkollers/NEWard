@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -33,6 +34,9 @@ import { ValidTokenPipe } from './pipes/valid-token.pipe';
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
+
+    // AngularFire
+    AngularFireAuthModule,
 
     // Material
     MatButtonModule,

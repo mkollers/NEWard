@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
 import { first, map } from 'rxjs/operators';
@@ -12,6 +13,7 @@ export class AuthService {
   token$: Observable<Token | undefined>;
 
   constructor(
+    private _auth: AngularFireAuth,
     private _db: AngularFirestore
   ) {
     this.token$ = this._createToken$();
@@ -76,4 +78,17 @@ export class AuthService {
     }
     return of(undefined);
   }
+
+  signup(mail: string, password: string) {
+    return this._auth.createUserWithEmailAndPassword(mail, password);
+  }
+
+  async signin(email: string, password: string) {
+    await this._auth.signInWithEmailAndPassword(email, password);
+  }
+
+  async logout() {
+    await this._auth.signOut();
+  }
+
 }
