@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '@shared/auth/guards/admin.guard';
 import { NoShellComponent } from '@shared/layout/components/no-shell/no-shell.component';
 import { ShellComponent } from '@shared/layout/components/shell/shell.component';
 
@@ -41,7 +42,11 @@ const routes: Routes = [
         loadChildren: () => import('./pages/admin/signin-page/signin-page.module').then(m => m.SigninPageModule)
       }, {
         path: 'statistics',
+        canActivate: [AdminGuard],
         loadChildren: () => import('./pages/admin/statistics-page/statistics-page.module').then(m => m.StatsticsPageModule)
+      }, {
+        path: '**',
+        redirectTo: 'signin'
       }
     ]
   },

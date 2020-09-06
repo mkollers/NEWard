@@ -1,18 +1,18 @@
 <form novalidate [formGroup]="fg" (ngSubmit)="submit()">
-    <mat-form-field appearance="fill">
-      <mat-label>E-Mail</mat-label>
-      <input matInput class="email" type="email" formControlName="email" autocomplete="email" required>
-      <mat-error *ngIf="fg.controls.email?.errors?.required || fg.controls.email?.errors?.email">Bitte
-        geben Sie eine gültige E-Mail ein</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Kennwort</mat-label>
-      <input matInput class="password" type="password" formControlName="password" required autocomplete="new-password">
-      <mat-error
-        *ngIf="fg.controls.password?.errors?.required">
-        Bitte geben Sie Ihr Kennwort ein</mat-error>
-    </mat-form-field>
-    <button color="primary" mat-flat-button
-      type="submit">Anmelden</button>
-  </form>
-  
+  <mat-form-field appearance="fill">
+    <mat-label>E-Mail</mat-label>
+    <input matInput class="email" type="email" formControlName="email" autocomplete="email" required>
+    <mat-error *ngIf="fg.controls.email?.errors?.required || fg.controls.email?.errors?.email">Bitte
+      geben Sie eine gültige E-Mail ein</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Kennwort</mat-label>
+    <input matInput class="password" type="password" formControlName="password" required autocomplete="new-password">
+    <mat-error *ngIf="fg.controls.password?.errors?.required">
+      Bitte geben Sie Ihr Kennwort ein</mat-error>
+  </mat-form-field>
+  <footer>
+    <button color="primary" mat-stroked-button type="button">Konto erstellen</button>
+    <button color="primary" mat-flat-button type="submit">Anmelden</button>
+  </footer>
+</form>

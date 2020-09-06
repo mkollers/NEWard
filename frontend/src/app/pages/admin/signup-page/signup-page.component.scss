@@ -5,3 +5,9 @@ form {
   max-width: 100%;
   width: 450px;
 }
+
+footer {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}

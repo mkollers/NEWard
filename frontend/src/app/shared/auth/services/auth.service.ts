@@ -11,12 +11,14 @@ import { Token } from '../models/token';
 })
 export class AuthService {
   token$: Observable<Token | undefined>;
+  user$: Observable<firebase.User | null>;
 
   constructor(
     private _auth: AngularFireAuth,
     private _db: AngularFirestore
   ) {
     this.token$ = this._createToken$();
+    this.user$ = _auth.user;
   }
 
   async register(email: string, url = `${window.location.origin}/signin-callback`) {
