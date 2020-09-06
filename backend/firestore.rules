@@ -20,7 +20,8 @@ service cloud.firestore {
       allow write: if false;
     }
     match /access_tokens/{token} {
-      allow read, update: if tokenStillValid();
+      allow read: if tokenStillValid() || request.auth != null;
+      allow update: if tokenStillValid();
       allow create, delete: if false;
     }
 

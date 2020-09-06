@@ -59,6 +59,11 @@ export class AuthService {
       .update({ company_votes });
   }
 
+  getTokens() {
+    return this._db
+      .collection<Token>('access_tokens').valueChanges();
+  }
+
   async voteForProduct(token: string, product: string, points: number) {
     const product_votes = await this.getByToken(token).pipe(
       first(),
@@ -92,5 +97,4 @@ export class AuthService {
   async logout() {
     await this._auth.signOut();
   }
-
 }
