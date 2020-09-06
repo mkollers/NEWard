@@ -39,6 +39,9 @@ const routes: Routes = [
       }, {
         path: 'signin',
         loadChildren: () => import('./pages/admin/signin-page/signin-page.module').then(m => m.SigninPageModule)
+      }, {
+        path: 'statistics',
+        loadChildren: () => import('./pages/admin/statistics-page/statistics-page.module').then(m => m.StatsticsPageModule)
       }
     ]
   },
