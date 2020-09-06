@@ -32,7 +32,7 @@ export class SigninPageComponent {
 
       await this._authService.signin(email, password);
 
-      await this._router.navigateByUrl('/');
+      await this._router.navigateByUrl('/admin/statistics');
     } catch (err) {
       switch (err.code) {
         default:

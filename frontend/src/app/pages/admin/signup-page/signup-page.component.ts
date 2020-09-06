@@ -34,7 +34,7 @@ export class SignupPageComponent {
 
       await this._authService.signup(email, password);
 
-      await this._router.navigateByUrl('/');
+      await this._router.navigateByUrl('/admin/statistics');
     } catch (err) {
       switch (err.code) {
         case 'auth/email-already-in-use':
