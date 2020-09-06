@@ -14,16 +14,12 @@ export class AdminGuard implements CanActivate {
   ) { }
 
   async canActivate() {
-    console.log(1);
     const user = await this._authService.user$.pipe(first()).toPromise();
-    console.log(2);
 
     if (!user) {
-      console.log(3);
       return this._router.parseUrl('/admin/signin');
     }
 
-    console.log(4);
     return true;
   }
 
