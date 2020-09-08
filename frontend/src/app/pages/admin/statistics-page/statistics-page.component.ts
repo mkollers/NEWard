@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Token } from '@shared/auth/models/token';
 import { AuthService } from '@shared/auth/services/auth.service';
-import { Company } from '@shared/data-access/models/company';
 import { CompanyService } from '@shared/data-access/services/company.service';
 import { ProductService } from '@shared/data-access/services/product.service';
 import orderBy from 'lodash/orderBy';
@@ -18,6 +17,7 @@ import { map } from 'rxjs/operators';
 export class StatisticsPageComponent {
   companyRanking$: Observable<{ name: string, points: number }[]>;
   productRanking$: Observable<{ name: string, points: number }[]>;
+  tokens$: Observable<Token[]>;
 
   constructor(
     authService: AuthService,
@@ -45,12 +45,7 @@ export class StatisticsPageComponent {
       }))),
       map(rankings => orderBy(rankings, r => r.points, 'desc'))
     );
-  }
 
-  private _mapCompanyRankings(companies: Company[], tokens: Token[]) {
-    return companies.map(c => ({
-      name: c.legalName,
-      points: sumBy(tokens, t => t.company_votes[c.id])
-    }));
+    this.tokens$ = authService.getTokens();
   }
 }

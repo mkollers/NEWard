@@ -2,3 +2,7 @@
 <neward-ranking-table [rankings]="companyRanking$ | async"></neward-ranking-table>
 <h1>Newcomer des Jahres</h1>
 <neward-ranking-table [rankings]="productRanking$ | async"></neward-ranking-table>
+<h1>Teilnehmer</h1>
+<ng-container *ngIf="tokens$ | async as tokens">
+  <neward-votes-table *ngIf="tokens?.length" [tokens]="tokens"></neward-votes-table>
+</ng-container>
