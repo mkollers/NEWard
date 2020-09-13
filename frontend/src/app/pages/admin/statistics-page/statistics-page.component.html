@@ -1,8 +1,12 @@
-<h1>Aufsteiger des Jahres</h1>
-<neward-ranking-table [rankings]="companyRanking$ | async"></neward-ranking-table>
-<h1>Newcomer des Jahres</h1>
-<neward-ranking-table [rankings]="productRanking$ | async"></neward-ranking-table>
-<h1>Teilnehmer</h1>
+<ng-container *ngIf="companyRanking$ | async as companyRanking">
+  <h1>Aufsteiger des Jahres</h1>
+  <neward-ranking-table *ngIf="companyRanking?.length" [rankings]="companyRanking"></neward-ranking-table>
+</ng-container>
+<ng-container *ngIf="productRanking$ | async as productRanking">
+  <h1>Produktneuheit des Jahres</h1>
+  <neward-ranking-table *ngIf="productRanking?.length" [rankings]="productRanking"></neward-ranking-table>
+</ng-container>
 <ng-container *ngIf="tokens$ | async as tokens">
+  <h1>Teilnehmer</h1>
   <neward-votes-table *ngIf="tokens?.length" [tokens]="tokens"></neward-votes-table>
 </ng-container>
