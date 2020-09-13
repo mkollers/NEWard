@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { RankingData } from './ranking-data';
 
 @Component({
   selector: 'neward-ranking-table',
@@ -9,9 +10,9 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class RankingTableComponent implements OnChanges {
   @Input()
-  rankings: { name: string; points: number }[];
-  displayedColumns = ['name', 'points'];
-  dataSource = new MatTableDataSource<{ name: string; points: number }>();
+  rankings: RankingData[];
+  displayedColumns = ['name', 'points', 'count', 'average'];
+  dataSource = new MatTableDataSource<RankingData>();
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.rankings) {

@@ -8,6 +8,8 @@ import sumBy from 'lodash/sumBy';
 import { combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+import { RankingData } from './components/ranking-table/ranking-data';
+
 @Component({
   selector: 'neward-statstics-page',
   templateUrl: './statistics-page.component.html',
@@ -15,8 +17,8 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatisticsPageComponent {
-  companyRanking$: Observable<{ name: string, points: number }[]>;
-  productRanking$: Observable<{ name: string, points: number }[]>;
+  companyRanking$: Observable<RankingData[]>;
+  productRanking$: Observable<RankingData[]>;
   tokens$: Observable<Token[]>;
 
   constructor(
@@ -30,8 +32,10 @@ export class StatisticsPageComponent {
     ]).pipe(
       map(([companies, tokens]) => companies.map(c => ({
         name: c.legalName,
-        points: sumBy(tokens, t => t.company_votes[c.id])
+        points: sumBy(tokens, t => t.company_votes[c.id]),
+        count: tokens.filter(t => t.company_votes[c.id]).length
       }))),
+      map(rankings => rankings.map(ranking => ({ ...ranking, average: (ranking.points / ranking.count) }))),
       map(rankings => orderBy(rankings, r => r.points, 'desc'))
     );
 
@@ -41,8 +45,10 @@ export class StatisticsPageComponent {
     ]).pipe(
       map(([products, tokens]) => products.map(p => ({
         name: `${p.name} (${p.manufacturer.legalName})`,
-        points: sumBy(tokens, t => t.product_votes[p.id])
+        points: sumBy(tokens, t => t.product_votes[p.id]),
+        count: tokens.filter(t => t.product_votes[p.id]).length
       }))),
+      map(rankings => rankings.map(ranking => ({ ...ranking, average: (ranking.points / ranking.count) }))),
       map(rankings => orderBy(rankings, r => r.points, 'desc'))
     );
 
