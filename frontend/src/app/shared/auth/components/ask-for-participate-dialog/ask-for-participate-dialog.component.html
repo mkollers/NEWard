@@ -1,0 +1,12 @@
+<h2 mat-dialog-title>Live Verleihung</h2>
+<button mat-icon-button mat-dialog-close tabindex="-1" aria-label="close" type="button">
+  <mat-icon>&#xe5cd;</mat-icon>
+</button>
+<mat-dialog-content>
+  <p>Möchten Sie live bei der Verleihung des NEWard 2020 dabei sein?
+  </p>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-flat-button color="primary" (click)="close(true)">Ja</button>
+  <button mat-stroked-button (click)="close(false)">Nein</button>
+</mat-dialog-actions>

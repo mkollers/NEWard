@@ -9,6 +9,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { RouterModule } from '@angular/router';
 
+import {
+  AskForParticipateDialogComponent
+} from './components/ask-for-participate-dialog/ask-for-participate-dialog.component';
 import { FirstVoteDialogComponent } from './components/first-vote-dialog/first-vote-dialog.component';
 import { SigninDialogComponent } from './components/signin-dialog/signin-dialog.component';
 import { InitialsPipe } from './pipes/initials.pipe';
@@ -21,7 +24,8 @@ import { ValidTokenPipe } from './pipes/valid-token.pipe';
     InitialsPipe,
     NameColorPipe,
     SigninDialogComponent,
-    ValidTokenPipe
+    ValidTokenPipe,
+    AskForParticipateDialogComponent
   ],
   exports: [
     FirstVoteDialogComponent,

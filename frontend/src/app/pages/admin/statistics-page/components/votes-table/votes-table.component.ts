@@ -13,7 +13,7 @@ import orderBy from 'lodash/orderBy';
 export class VotesTableComponent implements OnInit, OnChanges {
   @Input()
   tokens: Token[];
-  displayedColumns = ['email', 'created'];
+  displayedColumns = ['email', 'created', 'participate'];
   dataSource = new MatTableDataSource<Token>();
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;

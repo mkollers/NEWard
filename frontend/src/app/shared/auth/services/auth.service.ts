@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatDialog } from '@angular/material/dialog';
 import { Observable, of } from 'rxjs';
 import { first, map } from 'rxjs/operators';
 
+import {
+  AskForParticipateDialogComponent
+} from '../components/ask-for-participate-dialog/ask-for-participate-dialog.component';
 import { Token } from '../models/token';
 
 @Injectable({
@@ -15,7 +19,8 @@ export class AuthService {
 
   constructor(
     private _auth: AngularFireAuth,
-    private _db: AngularFirestore
+    private _db: AngularFirestore,
+    private _dialog: MatDialog
   ) {
     this.token$ = this._createToken$();
     this.user$ = _auth.user;
@@ -46,12 +51,16 @@ export class AuthService {
   }
 
   async voteForCompany(token: string, company: string, points: number) {
-    const company_votes = await this.getByToken(token).pipe(
-      first(),
-      map((data: Token) => data.company_votes || {})
+    const data = await this.getByToken(token).pipe(
+      first()
     ).toPromise();
 
+    const company_votes = data?.company_votes || {};
     company_votes[company] = points;
+
+    if (typeof data?.participate !== 'boolean') {
+      this._askForParticipate(token);
+    }
 
     return this._db
       .collection('access_tokens')
@@ -65,17 +74,37 @@ export class AuthService {
   }
 
   async voteForProduct(token: string, product: string, points: number) {
-    const product_votes = await this.getByToken(token).pipe(
-      first(),
-      map((data: Token) => data.product_votes || {})
+    const data = await this.getByToken(token).pipe(
+      first()
     ).toPromise();
 
+    const product_votes = data?.product_votes || {};
     product_votes[product] = points;
+
+    if (typeof data?.participate !== 'boolean') {
+      this._askForParticipate(token);
+    }
 
     return this._db
       .collection('access_tokens')
       .doc(token)
       .update({ product_votes });
+  }
+
+  private async _askForParticipate(token: string) {
+    const dialogRef = this._dialog.open(AskForParticipateDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
+
+    const result = await dialogRef.afterClosed().toPromise();
+
+    return this._db
+      .collection('access_tokens')
+      .doc(token)
+      .update({ participate: result });
   }
 
   private _createToken$() {

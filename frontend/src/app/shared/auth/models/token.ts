@@ -6,4 +6,5 @@ export interface Token {
     email: string;
     company_votes: { [company: string]: number };
     product_votes: { [product: string]: number };
+    participate: boolean | undefined;
 }
