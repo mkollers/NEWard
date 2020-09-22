@@ -3,12 +3,13 @@ import { ChangeDetectionStrategy, Component, Inject, INJECTOR, Injector } from '
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
+import { ContactDialogComponent } from '@shared/contact/dialogs/contact-dialog/contact-dialog.component';
 import { Company } from '@shared/data-access/models/company';
 import { CompanyService } from '@shared/data-access/services/company.service';
 import { BasePageComponent } from '@shared/helper/classes/base-page.component';
 import { OverlayImageDialogComponent } from '@shared/layout/components/overlay-image-dialog/overlay-image-dialog.component';
 import { merge, Observable, of } from 'rxjs';
-import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, first, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'neward-company-page',
@@ -41,6 +42,24 @@ export class CompanyPageComponent extends BasePageComponent {
       maxHeight: '90vH',
       maxWidth: '90vW'
     });
+  }
+
+  contact = async () => {
+    const dialog = this.injector.get(MatDialog);
+    const dialogRef = dialog.open(ContactDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
+
+    const result = await dialogRef.afterClosed().toPromise();
+    if (!result) return;
+
+    const service = this.injector.get(CompanyService);
+    const company = await this.company$.pipe(first()).toPromise();
+    if (!company) return;
+    await service.contact(company.id, result.message, result.email, result.givenName, result.familyName).toPromise();
   }
 
   signin = () => {

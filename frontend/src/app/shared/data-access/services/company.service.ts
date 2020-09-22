@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Action, AngularFirestore, DocumentChangeAction, DocumentSnapshot } from '@angular/fire/firestore';
+import { environment } from '@environments/environment';
 import shuffle from 'lodash/shuffle';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map, retry } from 'rxjs/operators';
 
 import { Company } from '../models/company';
 
@@ -12,7 +14,8 @@ import { Company } from '../models/company';
 export class CompanyService {
 
   constructor(
-    private _db: AngularFirestore
+    private _db: AngularFirestore,
+    private _httpClient: HttpClient
   ) { }
 
   static fromAction(action: Action<DocumentSnapshot<Company>>): Company {
@@ -35,5 +38,13 @@ export class CompanyService {
       .snapshotChanges().pipe(
         map(CompanyService.fromAction)
       );
+  }
+
+  contact(id: string, message: string, email: string, givenName?: string, familyName?: string) {
+    const url = `${environment.contactUrl}`;
+
+    return this._httpClient.post(url, {
+      message, email, givenName, familyName, companyId: id
+    }).pipe(retry(2));
   }
 }

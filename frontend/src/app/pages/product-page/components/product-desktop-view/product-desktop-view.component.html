@@ -21,6 +21,7 @@
       <mat-icon>&#xe5c5;</mat-icon>
     </button>
   </ng-container>
+  <button mat-stroked-button (click)="contact.emit()">Weitere Infos anfordern</button>
   <img class="logo" itemtype="http://schema.org/logo" *ngIf="product?.logo as logo"
     [alt]="'Produktlogo von ' + product?.name" [src]="logo">
   <section itemscope itemtype="http://schema.org/manufacturer" neward-contact [company]="product?.manufacturer">

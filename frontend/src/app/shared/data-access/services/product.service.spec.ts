@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as faker from 'faker';
 import sortBy from 'lodash/sortBy';
@@ -6,7 +7,8 @@ import {
   createAction,
   createAngularFirestoreCollection,
   createAngularFirestoreSingleCollection,
-  createDocumentChangeAction
+  createDocumentChangeAction,
+  Mock
 } from 'src/test-helper';
 import { instance, mock, when } from 'ts-mockito';
 
@@ -19,9 +21,10 @@ describe('ProductService', () => {
     // Arrange
     const angularFirestoreMock = mock<AngularFirestore>();
     const angularFirestore = instance(angularFirestoreMock);
+    const httpClient = new Mock<HttpClient>();
 
     // Act
-    const service = new ProductService(angularFirestore);
+    const service = new ProductService(angularFirestore, httpClient.instance);
 
     // Assert
     expect(service).toBeTruthy();
@@ -37,9 +40,10 @@ describe('ProductService', () => {
     const collection = createAngularFirestoreCollection(expected, e => e.id);
     when(angularFirestoreMock.collection('products')).thenReturn(collection);
     const angularFirestore = instance(angularFirestoreMock);
+    const httpClient = new Mock<HttpClient>();
 
     // Act
-    const service = new ProductService(angularFirestore);
+    const service = new ProductService(angularFirestore, httpClient.instance);
     const result = await service.getAll().pipe(first()).toPromise();
 
     // Assert
@@ -50,15 +54,16 @@ describe('ProductService', () => {
     // Arrange
     const expected: Product = { ...new ProductMock() };
     const raw = { ...expected };
-    delete raw.id;
+    raw.id = '';
 
     const angularFirestoreMock = mock<AngularFirestore>();
     const collection = createAngularFirestoreSingleCollection(expected.id, raw);
     when(angularFirestoreMock.collection('products')).thenReturn(collection);
     const angularFirestore = instance(angularFirestoreMock);
+    const httpClient = new Mock<HttpClient>();
 
     // Act
-    const service = new ProductService(angularFirestore);
+    const service = new ProductService(angularFirestore, httpClient.instance);
     const result = await service.getById(expected.id).pipe(first()).toPromise();
 
     // Assert
@@ -70,7 +75,7 @@ describe('ProductService', () => {
       // Arrange
       const expected = new ProductMock();
       const raw = { ...expected };
-      delete raw.id;
+      raw.id = '';
       const action = createAction(expected.id, raw);
 
       // Act
@@ -84,7 +89,7 @@ describe('ProductService', () => {
       // Arrange
       const expected = new ProductMock();
       const raw = { ...expected };
-      delete raw.id;
+      raw.id = '';
       const action = createDocumentChangeAction(expected.id, raw);
 
       // Act

@@ -90,6 +90,7 @@ export class AuthService {
     return this._auth.createUserWithEmailAndPassword(mail, password);
   }
 
+  /** Admin accounts */
   async signin(email: string, password: string) {
     await this._auth.signInWithEmailAndPassword(email, password);
   }

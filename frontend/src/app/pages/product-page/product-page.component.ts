@@ -1,14 +1,16 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ReturnStatement } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, Inject, INJECTOR, Injector } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { SigninDialogComponent } from '@shared/auth/components/signin-dialog/signin-dialog.component';
+import { ContactDialogComponent } from '@shared/contact/dialogs/contact-dialog/contact-dialog.component';
 import { Product } from '@shared/data-access/models/product';
 import { ProductService } from '@shared/data-access/services/product.service';
 import { BasePageComponent } from '@shared/helper/classes/base-page.component';
 import { OverlayImageDialogComponent } from '@shared/layout/components/overlay-image-dialog/overlay-image-dialog.component';
 import { merge, Observable, of } from 'rxjs';
-import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
+import { distinctUntilChanged, first, map, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'neward-product-page',
@@ -51,6 +53,24 @@ export class ProductPageComponent extends BasePageComponent {
       panelClass: 'neward-overlay-pane',
       width: '450px'
     });
+  }
+
+  contact = async () => {
+    const dialog = this.injector.get(MatDialog);
+    const dialogRef = dialog.open(ContactDialogComponent, {
+      disableClose: true,
+      maxWidth: 'calc(100% - 32px)',
+      panelClass: 'neward-overlay-pane',
+      width: '450px'
+    });
+
+    const result = await dialogRef.afterClosed().toPromise();
+    if (!result) return;
+
+    const service = this.injector.get(ProductService);
+    const product = await this.product$.pipe(first()).toPromise();
+    if (!product) return;
+    await service.contact(product.id, result.message, result.email, result.givenName, result.familyName).toPromise();
   }
 
   private _createViewQuery = () => {

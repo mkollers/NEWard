@@ -1,0 +1,38 @@
+:host {
+    display: block;
+    position: relative;
+  }
+  
+  .mat-icon-button[mat-dialog-close] {
+    height: 2rem;
+    line-height: 2rem;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    width: 2rem;
+  
+    .mat-icon {
+      height: 1.125rem;
+      font-size: 1.125rem;
+      line-height: 1.125rem;
+      width: 1.125rem;
+    }
+  }
+  
+  .mat-dialog-actions {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1fr auto;
+  
+    *:first-child {
+      justify-self: end;
+    }
+  }
+  
+  p {
+    margin: 0 0 24px 0;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }

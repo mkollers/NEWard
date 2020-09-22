@@ -21,6 +21,7 @@
       <mat-icon>&#xe5c5;</mat-icon>
     </button>
   </ng-container>
+  <button mat-stroked-button (click)="contact.emit()">Weitere Infos anfordern</button>
   <section neward-contact [company]="company"> </section>
   <section class="documents" *ngIf="company?.documents?.length > 0">
     <h2>Dokumente</h2>

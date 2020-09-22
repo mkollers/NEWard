@@ -19,6 +19,7 @@ export class ProductDesktopViewComponent {
   @Input() product: Product;
   @Output() openOverlay = new EventEmitter<string>();
   @Output() signin = new EventEmitter<void>();
+  @Output() contact = new EventEmitter<void>();
   token$: Observable<Token | undefined>;
 
   constructor(

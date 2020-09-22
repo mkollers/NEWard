@@ -19,6 +19,7 @@ export class CompanyDesktopViewComponent {
   @Input() company: Company;
   @Output() openOverlay = new EventEmitter<string>();
   @Output() signin = new EventEmitter<void>();
+  @Output() contact = new EventEmitter<void>();
   token$: Observable<Token | undefined>;
 
   constructor(

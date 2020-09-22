@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { AuthModule } from '@shared/auth/auth.module';
 import { CompanyModule } from '@shared/company/company.module';
+import { ContactModule } from '@shared/contact/contact.module';
 import { HelperModule } from '@shared/helper/helper.module';
 import { LayoutModule } from '@shared/layout/layout.module';
 import { SwiperConfigInterface, SwiperModule, SWIPER_CONFIG } from 'ngx-swiper-wrapper';
@@ -39,6 +40,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     // Custom
     AuthModule,
     CompanyModule,
+    ContactModule,
     HelperModule,
     LayoutModule,
     SwiperModule

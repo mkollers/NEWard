@@ -7,6 +7,7 @@
     <mat-icon>&#xe5c5;</mat-icon>
   </button>
 </ng-container>
+<button mat-stroked-button (click)="contact.emit()">Weitere Infos anfordern</button>
 <h1 itemtype="http://schema.org/Name">{{ product?.name }}</h1>
 <span *ngIf="product?.releaseDate as releaseDate">
   <span>Produktlaunch:</span>&nbsp;<span
@@ -37,6 +38,7 @@
   <a *ngFor="let document of product?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
     target="_blank">{{ document.name }}</a>
 </ng-container>
+<button mat-stroked-button (click)="contact.emit()">Weitere Infos anfordern</button>
 <section itemscope itemtype="http://schema.org/manufacturer" neward-contact [company]="product?.manufacturer">
 </section>
 

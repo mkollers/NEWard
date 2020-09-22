@@ -4,6 +4,7 @@
 
 export const environment: any = {
   production: false,
+  contactUrl: 'https://europe-west3-bodylife-neward.cloudfunctions.net/contact',
   firebase: {
     apiKey: 'AIzaSyBOLQIiDBo1RicZWZKJUaXLr_lO_dK7nWA',
     authDomain: 'bodylife-neward.firebaseapp.com',

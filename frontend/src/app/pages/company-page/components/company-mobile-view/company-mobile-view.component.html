@@ -37,6 +37,7 @@
   <a *ngFor="let document of company?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
     target="_blank">{{ document.name }}</a>
 </ng-container>
+<button mat-stroked-button (click)="contact.emit()">Weitere Infos anfordern</button>
 <section neward-contact [company]="company"> </section>
 
 <mat-menu #voteMenu="matMenu" class="neward-menu vote-menu" xPosition="before">
