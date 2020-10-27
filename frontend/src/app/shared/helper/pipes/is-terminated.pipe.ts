@@ -8,7 +8,7 @@ export class IsTerminatedPipe implements PipeTransform {
   transform(condition: 'before' | 'during' | 'after'): boolean {
     const today = new Date();
     const start = new Date('2020-07-27T12:00:00.000Z');
-    const end = new Date('2020-10-26T22:00:00.000Z');
+    const end = new Date('2020-10-29T23:00:00.000Z');
 
     const started = today > start;
     const ended = today > end;
