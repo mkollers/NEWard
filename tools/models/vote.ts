@@ -1,4 +1,5 @@
 export class Vote {
+    participate: boolean;
     company_votes: { [companyId: string]: number };
     product_votes: { [productId: string]: number };
     email: string;
@@ -11,5 +12,6 @@ export class Vote {
         this.company_votes = data.company_votes || {};
         this.product_votes = data.product_votes || {};
         this.updated = data.updated || [];
+        this.participate = data.participate || false;
     }
 }

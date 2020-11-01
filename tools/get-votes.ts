@@ -12,7 +12,8 @@ const csvWriter = createCsvWriter({
     header: [
         { id: 'email', title: 'Teilnehmer' },
         { id: 'vote', title: 'Aufsteiger/Produktneuheit' },
-        { id: 'points', title: 'Punkte' }
+        { id: 'points', title: 'Punkte' },
+        { id: 'participate', title: 'Teilnahme ' }
     ],
     fieldDelimiter: ';'
 });
@@ -30,26 +31,28 @@ async function main() {
     for (let token of votings) {
         for (let companyId in token.company_votes) {
             const company = _.find(companies, c => c.id === companyId);
-            if (!company){
+            if (!company) {
                 console.warn(`Company with id ${companyId} for ${token.email} not found!`);
                 continue;
             }
             data.push({
                 email: token.email,
                 vote: company.legalName,
-                points: token.company_votes[companyId]
+                points: token.company_votes[companyId],
+                participate: token.participate ? 'Ja' : 'Nein'
             });
         }
         for (let productId in token.product_votes) {
             const product = _.find(products, p => p.id === productId);
-            if (!product){
+            if (!product) {
                 console.warn(`Product with id ${product} not found!`);
                 continue;
             }
             data.push({
                 email: token.email,
                 vote: product.name,
-                points: token.product_votes[productId]
+                points: token.product_votes[productId],
+                participate: token.participate ? 'Ja' : 'Nein'
             });
         }
     }
