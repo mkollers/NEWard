@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { HelperModule } from '@shared/helper/helper.module';
 import { LayoutModule } from '@shared/layout/layout.module';
 
 import { CompanyCardComponent } from './components/company-card/company-card.component';
@@ -30,7 +31,8 @@ import { ProductsResolver } from './resolvers/products.resolver';
     MatButtonModule,
 
     // Custom
-    LayoutModule
+    LayoutModule,
+    HelperModule
   ], providers: [
     CompaniesResolver,
     ProductsResolver

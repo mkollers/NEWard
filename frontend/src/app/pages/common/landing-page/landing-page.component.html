@@ -1,5 +1,10 @@
 <section neward-intro @easeIn>
   <h1>Die Preisverleihung für Aufsteiger und Produktneuheiten der Fitnessbranche</h1>
+  <span *ngIf="'after' | isTerminated" class="terminated-message">Die Abstimmung hat am 30. Oktober geendet. Die
+    Gewinner werden am 24. November im Rahmen einer
+    Online-Preisverleihung bekannt gegeben. Möchten Sie live dabei sein? Dann können Sie sich hier anmelden:
+    <a href="https://bodylife-medien.com/events/" rel="noopener"
+      target="_blank">https://bodylife-medien.com/events/</a></span>
   <img class="right-image" width="48" height="132.48" src="/assets/pokal-aufsteiger-des-jahres.png">
   <img class="right-image" width="48" height="132.48" src="/assets/pokal-produktneuheit-des-jahres.png">
   Im vergangenen Jahr feierte der NEWard eine sensationelle Premiere: Überglückliche Gewinner, eine zauberhafte
@@ -27,5 +32,7 @@
   bis 10 abstimmen. Danach können Sie sich weitere Einträge anschauen und direkt abstimmen – ohne weitere Anforderung.
   Der Link zur Abstimmung ist 4 Stunden gültig.
 </section>
-<section id="aufsteiger-des-jahres" @list [token]="token$ | async" neward-company-listing [companies]="companies$ | async"></section>
-<section id="produktneuheiten-des-jahres" @list [token]="token$ | async" neward-product-listing [products]="products$ | async"></section>
+<section id="aufsteiger-des-jahres" @list [token]="token$ | async" neward-company-listing
+  [companies]="companies$ | async"></section>
+<section id="produktneuheiten-des-jahres" @list [token]="token$ | async" neward-product-listing
+  [products]="products$ | async"></section>
