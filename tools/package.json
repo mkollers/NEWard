@@ -7,7 +7,8 @@
     "get-votes": "ts-node get-votes.ts",
     "company-result": "ts-node get-company-results.ts",
     "product-result": "ts-node get-product-results.ts",
-    "reports": "npm run get-votes && npm run company-result && npm run product-result"
+    "reports": "npm run get-votes && npm run company-result && npm run product-result",
+    "backup-2020": "ts-node backup 2020"
   },
   "author": "",
   "license": "ISC",
