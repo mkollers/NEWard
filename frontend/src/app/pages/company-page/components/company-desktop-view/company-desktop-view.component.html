@@ -37,12 +37,12 @@
   </swiper>
 </section>
 <h2 class="full-width">Was macht uns besonders? USP?</h2>
-<p class="full-width" [innerHTML]="company?.promotion.usp | safe: 'html'"></p>
+<p class="full-width" [innerHTML]="company?.promotion?.usp | safe: 'html'"></p>
 <h2 class="full-width">Was wurde seit dem 1. Juni 2020 erreicht?</h2>
-<p class="full-width" [innerHTML]="company?.promotion.achieved | safe: 'html'"></p>
+<p class="full-width" [innerHTML]="company?.promotion?.achieved | safe: 'html'"></p>
 <h2 class="full-width">Weshalb sind wir der Aufsteiger des Jahres? Warum sollte man für uns
   voten? </h2>
-<p class="full-width" [innerHTML]="company?.promotion.why | safe: 'html'"></p>
+<p class="full-width" [innerHTML]="company?.promotion?.why | safe: 'html'"></p>
 
 <mat-menu #voteMenu="matMenu" class="neward-menu vote-menu" xPosition="before">
   <button mat-menu-item (click)="vote(company, 0)">0 Punkte</button>

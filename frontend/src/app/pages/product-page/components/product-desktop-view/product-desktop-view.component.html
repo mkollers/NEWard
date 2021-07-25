@@ -40,10 +40,10 @@
   </swiper>
 </section>
 <h2 class="full-width">Was macht unser Produkt besonders? USP?</h2>
-<p class="full-width" [innerHTML]="product?.promotion.usp | safe: 'html'"></p>
+<p class="full-width" [innerHTML]="product?.promotion?.usp | safe: 'html'"></p>
 <h2 class="full-width">Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt
   voten? </h2>
-<p class="full-width" [innerHTML]="product?.promotion.why | safe: 'html'"></p>
+<p class="full-width" [innerHTML]="product?.promotion?.why | safe: 'html'"></p>
 
 <mat-menu #voteMenu="matMenu" class="neward-menu vote-menu" xPosition="before">
   <button mat-menu-item (click)="vote(product, 0)">0 Punkte</button>

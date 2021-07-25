@@ -22,7 +22,7 @@
     allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <h2>Was macht unser Produkt besonders? USP?</h2>
-<p [innerHTML]="product?.promotion.usp | safe: 'html'"></p>
+<p [innerHTML]="product?.promotion?.usp | safe: 'html'"></p>
 <section class="slider" *ngIf="product?.images?.length > 0">
   <swiper>
     <a class="slider-element" (click)="openOverlay.emit(image)" *ngFor="let image of product?.images">
@@ -32,7 +32,7 @@
 </section>
 <h2>Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt
   voten? </h2>
-<p [innerHTML]="product?.promotion.why | safe: 'html'"></p>
+<p [innerHTML]="product?.promotion?.why | safe: 'html'"></p>
 <ng-container class="documents" *ngIf="product?.documents?.length > 0">
   <h2>Dokumente</h2>
   <a *ngFor="let document of product?.documents" download [href]="document.url | safe: 'url'" rel="noopener"
