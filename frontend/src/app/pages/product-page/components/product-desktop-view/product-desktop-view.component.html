@@ -8,8 +8,10 @@
     <iframe [src]="video | safe: 'resourceUrl'" frameborder="0"
       allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </section>
-  <h2>Kurzbeschreibung des Produkts</h2>
-  <p itemtype="http://schema.org/description" [innerHTML]="product?.promotion?.description | safe: 'html'"></p>
+  <ng-container *ngIf="product?.promotion?.description">
+    <h2>Kurzbeschreibung des Produkts</h2>
+    <p itemtype="http://schema.org/description" [innerHTML]="product?.promotion?.description | safe: 'html'"></p>
+  </ng-container>
 </section>
 <section class="right column">
   <ng-container *ngIf="token$ | async as token; else signindialog">
@@ -39,11 +41,15 @@
     </a>
   </swiper>
 </section>
-<h2 class="full-width">Was macht unser Produkt besonders? USP?</h2>
-<p class="full-width" [innerHTML]="product?.promotion?.usp | safe: 'html'"></p>
-<h2 class="full-width">Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt
+<ng-container *ngIf="product?.promotion?.usp">
+  <h2 class="full-width">Was macht unser Produkt besonders? USP?</h2>
+  <p class="full-width" [innerHTML]="product?.promotion?.usp | safe: 'html'"></p>
+</ng-container>
+<ng-container *ngIf="product?.promotion?.why">
+  <h2 class="full-width">Weshalb ist unser Produkt die Produktneuheit des Jahres? Warum sollte man für unser Produkt
   voten? </h2>
-<p class="full-width" [innerHTML]="product?.promotion?.why | safe: 'html'"></p>
+  <p class="full-width" [innerHTML]="product?.promotion?.why | safe: 'html'"></p>
+</ng-container>
 
 <mat-menu #voteMenu="matMenu" class="neward-menu vote-menu" xPosition="before">
   <button mat-menu-item (click)="vote(product, 0)">0 Punkte</button>
