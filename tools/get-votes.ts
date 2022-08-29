@@ -10,6 +10,7 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 const csvWriter = createCsvWriter({
     path: 'Einzelabstimmungen.csv',
     header: [
+        { id: 'created', title: 'Zeitpunkt' },
         { id: 'email', title: 'Teilnehmer' },
         { id: 'vote', title: 'Aufsteiger/Produktneuheit' },
         { id: 'points', title: 'Punkte' },
@@ -36,6 +37,7 @@ async function main() {
                 continue;
             }
             data.push({
+                created: token.created,
                 email: token.email,
                 vote: company.legalName,
                 points: token.company_votes[companyId],
@@ -49,6 +51,7 @@ async function main() {
                 continue;
             }
             data.push({
+                created: token.created,
                 email: token.email,
                 vote: product.name,
                 points: token.product_votes[productId],

@@ -10,7 +10,8 @@ const csvWriter = createCsvWriter({
     path: 'Aufsteiger-des-Jahres-Summen.csv',
     header: [
         { id: 'company', title: 'Unternehmen' },
-        { id: 'points', title: 'Punkte' }
+        { id: 'points', title: 'Punkte' },
+        { id: 'noFraudPoints', title: 'Bereinigte Punkte' }
     ],
     fieldDelimiter: ';'
 });
@@ -27,7 +28,8 @@ async function main() {
     for (let company of companies) {
         data.push({
             company: company.legalName,
-            points: _.sum(votings.map(v => v.company_votes[company.id])) || 0
+            points: _.sum(votings.map(v => v.company_votes[company.id])) || 0,
+            noFraudPoints: _.sum(votings.filter(v => !v.email.includes('htp.cloud')).map(v => v.company_votes[company.id])) || 0
         });
     }
 

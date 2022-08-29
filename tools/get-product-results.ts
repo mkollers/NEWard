@@ -11,7 +11,8 @@ const csvWriter = createCsvWriter({
     header: [
         { id: 'product', title: 'Produkt' },
         { id: 'company', title: 'Unternehmen' },
-        { id: 'points', title: 'Punkte' }
+        { id: 'points', title: 'Punkte' },
+        { id: 'noFraudPoints', title: 'Bereinigte Punkte' }
     ],
     fieldDelimiter: ';'
 });
@@ -29,7 +30,8 @@ async function main() {
         data.push({
             product: product.name,
             company: product.manufacturer.legalName,
-            points: _.sum(votings.map(v => v.product_votes[product.id])) || 0
+            points: _.sum(votings.map(v => v.product_votes[product.id])) || 0,
+            noFraudPoints: _.sum(votings.filter(v => !v.email.includes('htp.cloud')).map(v => v.product_votes[product.id])) || 0
         });
     }
 
