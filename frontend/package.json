@@ -31,7 +31,7 @@
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "firebase": "^7.14.6",
-    "moment": "^2.27.0",
+    "moment": "^2.29.4",
     "ngx-swiper-wrapper": "^9.0.1",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
